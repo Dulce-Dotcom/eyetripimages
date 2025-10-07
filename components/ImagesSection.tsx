@@ -4,95 +4,44 @@ import { useState, useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import ImageLightbox from './ImageLightbox'
 import ParallaxContainer from './ParallaxContainer'
+import { imageMetadata2025, getImageSizes, getBestImageSize, IMAGES_2025_PATH } from '../lib/imageUtils'
 
-const imageData = [
-  // AI Generated Series
-  {
-    id: 'neuphoria',
-    src: 'data:image/svg+xml;base64,' + btoa(`<svg width="800" height="800" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="ai1"><stop offset="0%" style="stop-color:#cd00ff;stop-opacity:0.8" /><stop offset="100%" style="stop-color:#01019b;stop-opacity:1" /></radialGradient></defs><rect width="100%" height="100%" fill="url(#ai1)"/><circle cx="400" cy="400" r="200" fill="rgba(240,248,255,0.2)"/><path d="M200,200 Q400,100 600,200 Q700,400 600,600 Q400,700 200,600 Q100,400 200,200" fill="rgba(205,0,255,0.3)"/></svg>`),
-    title: 'Neuphoria',
-    description: 'Art is essentially magic. It has its effect in our subconscious.',
-    series: 'AI Generated'
-  },
-  {
-    id: 'missing-piece',
-    src: 'data:image/svg+xml;base64,' + btoa(`<svg width="800" height="800" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ai2"><stop offset="0%" style="stop-color:#1B2A41;stop-opacity:1" /><stop offset="50%" style="stop-color:#cd00ff;stop-opacity:0.6" /><stop offset="100%" style="stop-color:#F0F8FF;stop-opacity:0.8" /></linearGradient></defs><rect width="100%" height="100%" fill="url(#ai2)"/><polygon points="400,100 600,300 500,600 300,600 200,300" fill="rgba(205,0,255,0.4)"/></svg>`),
-    title: 'The Missing Piece',
-    description: 'Always interested in the place where art and philosophy meet.',
-    series: 'AI Generated'
-  },
-  {
-    id: 'its-complicated',
-    src: 'data:image/svg+xml;base64,' + btoa(`<svg width="800" height="800" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="ai3"><stop offset="20%" style="stop-color:#F0F8FF;stop-opacity:0.3" /><stop offset="80%" style="stop-color:#01019b;stop-opacity:1" /></radialGradient></defs><rect width="100%" height="100%" fill="url(#ai3)"/><rect x="150" y="150" width="500" height="500" fill="none" stroke="rgba(205,0,255,0.5)" stroke-width="3" rx="50"/><circle cx="400" cy="400" r="100" fill="rgba(240,248,255,0.2)"/></svg>`),
-    title: "It's Complicated",
-    description: 'Complex layers of meaning and visual depth.',
-    series: 'AI Generated'
-  },
-  // Crush Series
-  {
-    id: 'crush-07',
-    src: 'data:image/svg+xml;base64,' + btoa(`<svg width="800" height="800" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="crush1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#01019b;stop-opacity:1" /><stop offset="100%" style="stop-color:#1B2A41;stop-opacity:1" /></linearGradient></defs><rect width="100%" height="100%" fill="url(#crush1)"/><ellipse cx="400" cy="200" rx="300" ry="100" fill="rgba(205,0,255,0.3)" transform="rotate(45 400 400)"/><ellipse cx="400" cy="600" rx="250" ry="80" fill="rgba(240,248,255,0.2)" transform="rotate(-30 400 400)"/></svg>`),
-    title: 'Crush #07',
-    description: 'From the Crush Series - exploring texture and form.',
-    series: 'Crush Series'
-  },
-  {
-    id: 'crush-08',
-    src: 'data:image/svg+xml;base64,' + btoa(`<svg width="800" height="800" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="crush2"><stop offset="0%" style="stop-color:#1B2A41;stop-opacity:0.8" /><stop offset="100%" style="stop-color:#01019b;stop-opacity:1" /></radialGradient></defs><rect width="100%" height="100%" fill="url(#crush2)"/><path d="M100,400 Q200,100 400,200 Q600,150 700,400 Q600,700 400,600 Q200,650 100,400" fill="rgba(205,0,255,0.25)"/></svg>`),
-    title: 'Crush #08',
-    description: 'Organic forms compressed and transformed.',
-    series: 'Crush Series'
-  },
-  {
-    id: 'crush-09',
-    src: 'data:image/svg+xml;base64,' + btoa(`<svg width="800" height="800" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="crush3" x1="100%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:#cd00ff;stop-opacity:0.4" /><stop offset="100%" style="stop-color:#01019b;stop-opacity:1" /></linearGradient></defs><rect width="100%" height="100%" fill="url(#crush3)"/><circle cx="300" cy="300" r="150" fill="rgba(240,248,255,0.1)"/><circle cx="500" cy="500" r="100" fill="rgba(205,0,255,0.2)"/></svg>`),
-    title: 'Crush #09',
-    description: 'Abstract beauty from destruction and reformation.',
-    series: 'Crush Series'
-  },
-  // B&W Series
-  {
-    id: 'alice-nonsense',
-    src: 'data:image/svg+xml;base64,' + btoa(`<svg width="800" height="800" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="bw1"><stop offset="0%" style="stop-color:#F0F8FF;stop-opacity:1" /><stop offset="50%" style="stop-color:#1B2A41;stop-opacity:1" /><stop offset="100%" style="stop-color:#01019b;stop-opacity:1" /></linearGradient></defs><rect width="100%" height="100%" fill="url(#bw1)"/><rect x="100" y="100" width="600" height="600" fill="none" stroke="rgba(240,248,255,0.6)" stroke-width="2"/><circle cx="400" cy="400" r="200" fill="rgba(240,248,255,0.1)"/></svg>`),
-    title: "Alice's Brand of Nonsense",
-    description: 'Monochromatic exploration of surreal themes.',
-    series: 'B/W'
-  },
-  {
-    id: 'in-plain-sight',
-    src: 'data:image/svg+xml;base64,' + btoa(`<svg width="800" height="800" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="bw2"><stop offset="30%" style="stop-color:#F0F8FF;stop-opacity:0.8" /><stop offset="100%" style="stop-color:#1B2A41;stop-opacity:1" /></radialGradient></defs><rect width="100%" height="100%" fill="url(#bw2)"/><polygon points="400,50 750,400 400,750 50,400" fill="rgba(240,248,255,0.3)"/></svg>`),
-    title: 'In Plain Sight',
-    description: 'Hidden meanings in everyday abstractions.',
-    series: 'B/W'
-  },
-  // Pseudo Color
-  {
-    id: 'you-have-found-it',
-    src: 'data:image/svg+xml;base64,' + btoa(`<svg width="800" height="800" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="pseudo1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#cd00ff;stop-opacity:0.7" /><stop offset="50%" style="stop-color:#1B2A41;stop-opacity:0.8" /><stop offset="100%" style="stop-color:#01019b;stop-opacity:1" /></linearGradient></defs><rect width="100%" height="100%" fill="url(#pseudo1)"/><path d="M0,0 L800,0 L800,400 Q400,200 0,400 Z" fill="rgba(240,248,255,0.2)"/><path d="M0,800 L800,800 L800,400 Q400,600 0,400 Z" fill="rgba(205,0,255,0.3)"/></svg>`),
-    title: 'You Have Found It',
-    description: 'Discovery through color and form manipulation.',
-    series: 'Pseudo Color'
-  }
-]
+// Convert image metadata to component format with real 2025 images
+const imageData = imageMetadata2025.map((metadata, index) => {
+  const sizes = getImageSizes(IMAGES_2025_PATH, metadata.filename);
+  
+  return {
+    id: metadata.filename.replace(/\.[^/.]+$/, ""), // Remove extension for ID
+    src: getBestImageSize(sizes, 'preview'), // Medium size for gallery
+    lightboxSrc: getBestImageSize(sizes, 'lightbox'), // Large size for lightbox
+    title: metadata.title,
+    description: metadata.description || 'Digital artwork from the EyeTrip Images collection.',
+    series: metadata.category.charAt(0).toUpperCase() + metadata.category.slice(1), // Capitalize category
+    year: metadata.year,
+    dimensions: metadata.dimensions,
+    megapixels: metadata.megapixels
+  };
+});
 
-type SeriesName = 'AI Generated' | 'Crush Series' | 'B/W' | 'Pseudo Color'
+// Define series information for the 2025 collection
+type SeriesName = 'CrushSeries' | 'Photography' | 'DigitalArt' | 'Gigapixel'
 
 const seriesInfo: Record<SeriesName, { description: string; color: string }> = {
-  'AI Generated': {
-    description: 'AI is a shiny new toy and many are abusing it. I myself have quickly tired of the novelty, and seek to use it as a tool to create images that are uniquely mine. No text prompts were used in this process.',
-    color: 'from-magenta to-hypnotic-white'
-  },
-  'Crush Series': {
-    description: 'An exploration of organic forms under pressure, revealing beauty in transformation and destruction.',
+  'CrushSeries': {
+    description: 'An exploration of organic forms under pressure, revealing beauty in transformation and destruction. These digital compositions push the boundaries of abstract art.',
     color: 'from-deep-blue to-dark-grey'
   },
-  'B/W': {
-    description: 'Monochromatic studies that strip away color to reveal pure form and emotion.',
+  'Photography': {
+    description: 'Contemporary portrait and street photography capturing fleeting moments with dramatic lighting and emotional depth.',
     color: 'from-hypnotic-white to-dark-grey'
   },
-  'Pseudo Color': {
-    description: 'Color manipulation that creates new realities from familiar forms.',
+  'DigitalArt': {
+    description: 'AI-assisted digital artworks and digital reinterpretations of classic masterpieces, exploring the intersection of technology and traditional art.',
     color: 'from-magenta to-deep-blue'
+  },
+  'Gigapixel': {
+    description: 'Ultra high-resolution compositions designed for large-scale printing. These works contain extraordinary detail that can be explored at massive sizes.',
+    color: 'from-magenta to-hypnotic-white'
   }
 }
 

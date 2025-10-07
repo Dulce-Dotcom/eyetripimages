@@ -24,7 +24,16 @@ export default function HeroSlider() {
       {/* Layer 1 - Background with slow parallax */}
       <ParallaxContainer speed={-0.2} className="absolute inset-0">
         <div className="h-[120vh] w-full bg-gradient-to-br from-deep-blue via-dark-grey to-deep-blue">
-          {/* Background texture overlay */}
+          {/* Hero background image */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center opacity-30"
+            style={{ 
+              backgroundImage: `url('/uploads/2025/05/Crush_Series_1201-2048x1245.jpg')`,
+              mixBlendMode: 'overlay'
+            }}
+          />
+          {/* Gradient overlays */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-deep-blue/40 to-deep-blue/80" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(205,0,255,0.15),transparent_70%)]" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(240,248,255,0.08),transparent_50%)]" />
           {/* Additional visual interest */}

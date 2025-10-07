@@ -48,9 +48,11 @@ next-env.d.ts
 ehthumbs.db
 Thumbs.db
 
-# Large image uploads (use placeholder images instead)
+# Large image uploads (temporarily allowed for portfolio development)
+# Large image files - keep local only
 public/uploads/
 public/videos/
+# Note: Remove public/uploads/ comment when ready for production
 
 # IDE
 .vscode/

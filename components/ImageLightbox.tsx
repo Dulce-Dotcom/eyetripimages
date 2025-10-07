@@ -7,9 +7,12 @@ import { X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut, RotateCw } from 'lucide-
 interface ImageData {
   id: string
   src: string
+  lightboxSrc?: string // High resolution version for lightbox
   title: string
   dimensions?: string
   description?: string
+  year?: number
+  megapixels?: string
 }
 
 interface ImageLightboxProps {
@@ -248,7 +251,7 @@ export default function ImageLightbox({
             onMouseDown={handleMouseDown}
           >
             <motion.img
-              src={currentImage.src}
+              src={currentImage.lightboxSrc || currentImage.src}
               alt={currentImage.title}
               className="max-w-full max-h-full object-contain"
               style={{
