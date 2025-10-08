@@ -11,6 +11,7 @@ interface VideoData {
   description?: string
   thumbnail?: string
   isVR?: boolean
+  isYouTube?: boolean
 }
 
 interface VideoGalleryProps {
@@ -121,15 +122,27 @@ export default function VideoGallery({ videos, className = '' }: VideoGalleryPro
                   src={video.thumbnail}
                   alt={video.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  onError={(e) => {
+                    // Fallback to a backup thumbnail URL or hide the image
+                    const img = e.target as HTMLImageElement
+                    if (img.src.includes('hqdefault')) {
+                      // Try mqdefault as fallback
+                      img.src = img.src.replace('hqdefault', 'mqdefault')
+                    } else {
+                      // Hide image and show fallback
+                      img.style.display = 'none'
+                    }
+                  }}
                 />
-              ) : (
-                <div className="w-full h-full bg-gradient-to-br from-deep-blue to-dark-grey flex items-center justify-center">
-                  <Play className="w-12 h-12 text-magenta" />
-                </div>
-              )}
+              ) : null}
+              
+              {/* Fallback background - always present */}
+              <div className="absolute inset-0 bg-gradient-to-br from-deep-blue to-dark-grey flex items-center justify-center -z-10">
+                <Play className="w-12 h-12 text-magenta" />
+              </div>
               
               {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-t from-hypnotic-white/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               
               {/* Play Button */}
               <motion.div
@@ -152,11 +165,11 @@ export default function VideoGallery({ videos, className = '' }: VideoGalleryPro
             
             {/* Video Info */}
             <div className="mt-4">
-              <h3 className="text-lg font-semibold text-hypnotic-white group-hover:text-magenta transition-colors">
+              <h3 className="text-lg font-semibold text-dark-grey group-hover:text-magenta transition-colors">
                 {video.title}
               </h3>
               {video.description && (
-                <p className="text-hypnotic-white/70 text-sm mt-1 line-clamp-2">
+                <p className="text-dark-grey/70 text-sm mt-1 line-clamp-2">
                   {video.description}
                 </p>
               )}
@@ -173,21 +186,33 @@ export default function VideoGallery({ videos, className = '' }: VideoGalleryPro
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-50 bg-black"
+            className="fixed inset-0 z-50 bg-hypnotic-white"
           >
             {/* Background Video Effect */}
             <motion.div
               style={{ opacity: backgroundOpacity }}
               className="absolute inset-0"
             >
-              <video
-                className="w-full h-full object-cover blur-md scale-110"
-                src={activeVideoData.src}
-                muted
-                loop
-                autoPlay
-              />
-              <div className="absolute inset-0 bg-black/30" />
+              {!activeVideoData.isYouTube && (
+                <>
+                  <video
+                    className="w-full h-full object-cover blur-md scale-110"
+                    src={activeVideoData.src}
+                    muted
+                    loop
+                    autoPlay
+                  />
+                  <div className="absolute inset-0 bg-hypnotic-white/30" />
+                </>
+              )}
+              {activeVideoData.isYouTube && (
+                <div 
+                  className="w-full h-full bg-cover bg-center blur-md scale-110"
+                  style={{ backgroundImage: `url(${activeVideoData.thumbnail})` }}
+                >
+                  <div className="absolute inset-0 bg-hypnotic-white/50" />
+                </div>
+              )}
             </motion.div>
 
             {/* Main Video */}
@@ -199,22 +224,31 @@ export default function VideoGallery({ videos, className = '' }: VideoGalleryPro
                 transition={{ duration: 0.4 }}
                 className="relative w-full max-w-6xl aspect-video"
               >
-                <video
-                  ref={videoRef}
-                  src={activeVideoData.src}
-                  className="w-full h-full rounded-lg shadow-2xl"
-                  autoPlay
-                  muted={isMuted}
-                  controls={false}
-                  onPlay={() => setIsPlaying(true)}
-                  onPause={() => setIsPlaying(false)}
-                />
+                {activeVideoData.isYouTube ? (
+                  <iframe
+                    src={`https://www.youtube.com/embed/${activeVideoData.id}?autoplay=1&mute=${isMuted ? 1 : 0}&controls=0&modestbranding=1&rel=0`}
+                    className="w-full h-full rounded-lg shadow-2xl"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
+                ) : (
+                  <video
+                    ref={videoRef}
+                    src={activeVideoData.src}
+                    className="w-full h-full rounded-lg shadow-2xl"
+                    autoPlay
+                    muted={isMuted}
+                    controls={false}
+                    onPlay={() => setIsPlaying(true)}
+                    onPause={() => setIsPlaying(false)}
+                  />
+                )}
                 
                 {/* Video Controls Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/40 opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-lg">
+                <div className={`absolute inset-0 ${activeVideoData.isYouTube ? 'pointer-events-none' : 'bg-gradient-to-t from-hypnotic-white/60 via-transparent to-hypnotic-white/40 opacity-0 hover:opacity-100'} transition-opacity duration-300 rounded-lg`}>
                   {/* Top Controls */}
-                  <div className="absolute top-4 left-4 right-4 flex justify-between items-start">
-                    <div className="bg-black/50 backdrop-blur-sm rounded-lg p-3">
+                  <div className="absolute top-4 left-4 right-4 flex justify-between items-start pointer-events-auto">
+                    <div className="bg-hypnotic-white/50 backdrop-blur-sm rounded-lg p-3">
                       <h2 className="text-hypnotic-white font-semibold text-xl">
                         {activeVideoData.title}
                       </h2>
@@ -227,38 +261,48 @@ export default function VideoGallery({ videos, className = '' }: VideoGalleryPro
                     
                     <button
                       onClick={handleClose}
-                      className="p-3 bg-black/50 backdrop-blur-sm rounded-lg text-hypnotic-white hover:bg-magenta/20 transition-colors"
+                      className="p-3 bg-hypnotic-white/50 backdrop-blur-sm rounded-lg text-deep-blue hover:bg-magenta/20 transition-colors"
                     >
                       <X size={24} />
                     </button>
                   </div>
                   
-                  {/* Center Play/Pause */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <motion.button
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                      onClick={handlePlayPause}
-                      className="w-20 h-20 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center border border-magenta/50 hover:bg-magenta/20 transition-colors"
-                    >
-                      {isPlaying ? (
-                        <Pause className="w-10 h-10 text-hypnotic-white" />
-                      ) : (
-                        <Play className="w-10 h-10 text-hypnotic-white ml-1" />
-                      )}
-                    </motion.button>
-                  </div>
+                  {/* Center Play/Pause (only for non-YouTube videos) */}
+                  {!activeVideoData.isYouTube && (
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-auto">
+                      <motion.button
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={handlePlayPause}
+                        className="w-20 h-20 bg-hypnotic-white/50 backdrop-blur-sm rounded-full flex items-center justify-center border border-magenta/50 hover:bg-magenta/20 transition-colors"
+                      >
+                        {isPlaying ? (
+                          <Pause className="w-10 h-10 text-deep-blue" />
+                        ) : (
+                          <Play className="w-10 h-10 text-deep-blue ml-1" />
+                        )}
+                      </motion.button>
+                    </div>
+                  )}
                   
                   {/* Bottom Controls */}
-                  <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+                  <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end pointer-events-auto">
                     <div className="flex gap-2">
-                      <button
-                        onClick={handleMute}
-                        className="p-3 bg-black/50 backdrop-blur-sm rounded-lg text-hypnotic-white hover:bg-magenta/20 transition-colors"
-                      >
-                        {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
-                      </button>
+                      {!activeVideoData.isYouTube && (
+                        <button
+                          onClick={handleMute}
+                          className="p-3 bg-hypnotic-white/50 backdrop-blur-sm rounded-lg text-deep-blue hover:bg-magenta/20 transition-colors"
+                        >
+                          {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
+                        </button>
+                      )}
                     </div>
+                    
+                    {activeVideoData.isYouTube && (
+                      <div className="bg-blue-600/90 backdrop-blur-sm rounded-lg px-4 py-2">
+                        <span className="text-hypnotic-white font-semibold">YouTube Video</span>
+                      </div>
+                    )}
                     
                     {activeVideoData.isVR && (
                       <div className="bg-magenta/90 backdrop-blur-sm rounded-lg px-4 py-2">

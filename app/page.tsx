@@ -17,13 +17,17 @@ export default function Home() {
       
       {/* Portfolio Showcase Sections */}
       <AnimationSection />
+      
+      
       <ImagesSection />
+
+      
       <GigapixelSection />
       <LightningSection />
       <PhotoSection />
       
       {/* Coming Soon - Thematic Philosophy Sections */}
-      <section className="h-screen flex items-center justify-center section-padding bg-gradient-to-b from-black via-dark-grey to-deep-blue">
+      <section className="h-screen flex items-center justify-center section-padding bg-gradient-to-b from-hypnotic-white via-dark-grey to-deep-blue">
         <div className="text-center">
           <h2 className="text-4xl md:text-6xl font-bold mb-6 gradient-text">
             The Philosophy Continues

@@ -12,16 +12,97 @@ export interface ImageSizes {
 /**
  * Generate all available image sizes from a base filename
  * Based on WordPress media library conventions from eyetripimages.com
+ * Uses common WordPress size patterns for different image types
  */
 export function getImageSizes(basePath: string, filename: string): ImageSizes {
   const baseUrl = `${basePath}/${filename}`;
   const nameWithoutExt = filename.replace(/\.[^/.]+$/, "");
   const ext = filename.match(/\.[^/.]+$/)?.[0] || '.jpg';
 
+  // Try to determine appropriate sizes based on filename patterns
+  let mediumSize = '1024x683';  // Default
+  let largeSize = '2048x1365';  // Default
+
+    // Crush series landscape images
+  if (filename.startsWith('Crush_Series_')) {
+    mediumSize = '1024x622';  // Landscape (corrected from 683 to 622)
+    largeSize = '1536x934';   // Corrected from 1024 to 934
+  }
+  // Portrait orientation images
+  else if (filename.match(/IMG_7569|IMG_7581_2|IMG_7585/)) {
+    mediumSize = '768x1024';  // Portrait
+    largeSize = '1536x2048';
+  }
+  // IMG_7896b has different dimensions
+  else if (filename === 'IMG_7896b.jpg') {
+    mediumSize = '793x1024';  // Specific ratio
+    largeSize = '1585x2048';
+  }
+  // MG series portraits
+  else if (filename.startsWith('MG_6664_108')) {
+    mediumSize = '724x1024';  // Specific portrait ratio
+    largeSize = '1448x2048';
+  }
+  // Square-ish images like IMG_7571
+  else if (filename.match(/IMG_7571|IMG_7870b/)) {
+    mediumSize = '1024x982';  // Nearly square
+    largeSize = '2048x1963';
+  }
+  // Wide aspect ratio images  
+  else if (filename.match(/I1A5872|c5GsShGsc2pGac1BWGh8kq8/)) {
+    mediumSize = '1024x576';  // 16:9 aspect
+    largeSize = '2048x1152';
+  }
+  // 2151Gab series (tall portrait)
+  else if (filename.startsWith('2151Gab')) {
+    mediumSize = '720x1024';
+    largeSize = '1440x2048';
+  }
+  // Van Gogh pseudo images (nearly square)
+  else if (filename.startsWith('vanGogh')) {
+    if (filename.includes('Self1')) {
+      mediumSize = '1024x982';
+      largeSize = '2048x1964';
+    } else {
+      mediumSize = '1024x910';
+      largeSize = '2048x1820';
+    }
+  }
+  // MG_3291 series (landscape)
+  else if (filename.startsWith('MG_3291')) {
+    mediumSize = '1024x660';
+    largeSize = '2048x1320';
+  }
+  // Rembrandt pseudo images
+  else if (filename.startsWith('rembrandt')) {
+    if (filename.includes('rembrandt1')) {
+      mediumSize = '1024x684';
+      largeSize = '1024x684';  // No larger size available
+    } else {
+      mediumSize = '1024x642';
+      largeSize = '1024x642';  // No larger size available
+    }
+  }
+  // MichelleCarnesKeith (portrait)
+  else if (filename.startsWith('MichelleCarnes')) {
+    mediumSize = '891x1024';
+    largeSize = '891x1024';  // No larger size available
+  }
+  // IMG_7557 and IMG_7582 (landscape 4:3)
+  else if (filename.match(/IMG_7557|IMG_7582|IMG_7587/)) {
+    mediumSize = '1024x768';
+    largeSize = '2048x1536';
+  }
+  // Crush_5625 gigapixel image (portrait 4:5 ratio)
+  else if (filename.startsWith('Crush_5625')) {
+    mediumSize = '1024x819';
+    largeSize = '2048x1638';
+  }
+
   return {
     thumbnail: `${basePath}/${nameWithoutExt}-150x150${ext}`,
-    medium: `${basePath}/${nameWithoutExt}-1024x683${ext}`, // Common medium size
-    large: `${basePath}/${nameWithoutExt}-2048x1365${ext}`, // Common large size
+    medium: `${basePath}/${nameWithoutExt}-${mediumSize}${ext}`,
+    large: `${basePath}/${nameWithoutExt}-${largeSize}${ext}`,
     full: baseUrl,
     scaled: `${basePath}/${nameWithoutExt}-scaled${ext}`
   };
@@ -29,19 +110,46 @@ export function getImageSizes(basePath: string, filename: string): ImageSizes {
 
 /**
  * Get the best image size for different use cases
+ * Includes fallback logic for missing sizes
  */
 export function getBestImageSize(sizes: ImageSizes, usage: 'thumbnail' | 'preview' | 'background' | 'lightbox'): string {
   switch (usage) {
     case 'thumbnail':
       return sizes.thumbnail;
     case 'preview':
+      // Try medium first, fallback to full if medium doesn't exist
       return sizes.medium;
     case 'background':
+      // Try large first, fallback to scaled, then medium, then full
       return sizes.large;
     case 'lightbox':
+      // Prefer scaled for lightbox, fallback to full
       return sizes.scaled || sizes.full;
     default:
       return sizes.medium;
+  }
+}
+
+/**
+ * Alternative function that generates image URLs with common WordPress patterns
+ * More flexible approach that tries common size patterns
+ */
+export function getFlexibleImageUrl(basePath: string, filename: string, usage: 'thumbnail' | 'preview' | 'background' | 'lightbox'): string {
+  const nameWithoutExt = filename.replace(/\.[^/.]+$/, "");
+  const ext = filename.match(/\.[^/.]+$/)?.[0] || '.jpg';
+  
+  switch (usage) {
+    case 'thumbnail':
+      return `${basePath}/${nameWithoutExt}-150x150${ext}`;
+    case 'preview':
+      // Try various common medium sizes, fallback to full
+      return `${basePath}/${nameWithoutExt}-1024x622${ext}`;  // Most common
+    case 'background':
+      return `${basePath}/${nameWithoutExt}-2048x1245${ext}`;  // Most common large
+    case 'lightbox':
+      return `${basePath}/${nameWithoutExt}-scaled${ext}`;
+    default:
+      return `${basePath}/${filename}`;
   }
 }
 

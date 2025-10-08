@@ -4,10 +4,11 @@ import { useState, useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import ImageLightbox from './ImageLightbox'
 import ParallaxContainer from './ParallaxContainer'
-import { imageMetadata2025, getImageSizes, getBestImageSize, IMAGES_2025_PATH } from '../lib/imageUtils'
+import { imageMetadata2025, getImageSizes, getBestImageSize, getFlexibleImageUrl, IMAGES_2025_PATH } from '../lib/imageUtils'
 
 // Convert image metadata to component format with real 2025 images
 const imageData = imageMetadata2025.map((metadata, index) => {
+  // Use the flexible approach for better compatibility
   const sizes = getImageSizes(IMAGES_2025_PATH, metadata.filename);
   
   return {
@@ -86,17 +87,6 @@ export default function ImagesSection() {
       ref={containerRef}
       className="relative min-h-screen py-20 bg-gradient-to-b from-deep-blue to-dark-grey"
     >
-      {/* Animated Background */}
-      <ParallaxContainer speed={-0.2} className="absolute inset-0">
-        <motion.div 
-          style={{ y: backgroundY }}
-          className="h-[120vh] w-full"
-        >
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(205,0,255,0.1),transparent_60%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(240,248,255,0.08),transparent_50%)]" />
-        </motion.div>
-      </ParallaxContainer>
-
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <motion.div 
@@ -154,7 +144,7 @@ export default function ImagesSection() {
             exit={{ opacity: 0, height: 0 }}
             className="mb-12 text-center"
           >
-            <div className="bg-black/20 backdrop-blur-sm rounded-lg p-6 border border-magenta/20">
+            <div className="bg-hypnotic-white/20 backdrop-blur-sm rounded-lg p-6 border border-magenta/20">
               <h3 className={`text-2xl font-semibold bg-gradient-to-r ${seriesInfo[selectedSeries as SeriesName].color} bg-clip-text text-transparent mb-3`}>
                 {selectedSeries}
               </h3>
@@ -188,7 +178,7 @@ export default function ImagesSection() {
                 />
                 
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-hypnotic-white/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 
                 {/* Image Info */}
                 <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
@@ -205,7 +195,7 @@ export default function ImagesSection() {
 
                 {/* Series Badge */}
                 <div className="absolute top-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className={`bg-gradient-to-r ${seriesInfo[image.series as SeriesName].color} text-transparent bg-clip-text font-semibold text-xs px-2 py-1 bg-black/50 backdrop-blur-sm rounded`}>
+                  <span className={`bg-gradient-to-r ${seriesInfo[image.series as SeriesName].color} text-transparent bg-clip-text font-semibold text-xs px-2 py-1 bg-hypnotic-white/50 backdrop-blur-sm rounded`}>
                     {image.series}
                   </span>
                 </div>
@@ -221,7 +211,7 @@ export default function ImagesSection() {
           transition={{ duration: 0.8 }}
           className="mt-20 text-center"
         >
-          <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-8 border border-hypnotic-white/10">
+          <div className="bg-hypnotic-white/30 backdrop-blur-sm rounded-2xl p-8 border border-deep-blue/10">
             <p className="text-lg text-hypnotic-white/90 mb-4 font-medium">
               I do not use text prompts, and the AI was not trained on other artist's work.
             </p>

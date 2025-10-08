@@ -9,66 +9,87 @@ import ParallaxContainer from './ParallaxContainer'
 const photographyImages = [
   {
     id: 'crush-texture',
-    src: 'data:image/svg+xml;base64,' + btoa(`<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="crush"><stop offset="0%" style="stop-color:#cd00ff;stop-opacity:0.6" /><stop offset="100%" style="stop-color:#01019b;stop-opacity:1" /></radialGradient></defs><rect width="100%" height="100%" fill="url(#crush)"/><path d="M0,0 Q400,300 800,0 Q400,600 0,600 Z" fill="rgba(240,248,255,0.2)"/></svg>`),
+    src: '/uploads/2025/02/Crush_5625_03_q3-scaled.jpg',
     title: 'Crush #5625',
     description: 'Abstract textural study emphasizing form over content.',
     category: 'Abstract'
   },
   {
     id: 'elfrida-sunset',
-    src: 'data:image/svg+xml;base64,' + btoa(`<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sunset" x1="0%" y1="100%" x2="0%" y2="0%"><stop offset="0%" style="stop-color:#cd00ff;stop-opacity:0.8" /><stop offset="50%" style="stop-color:#1B2A41;stop-opacity:0.6" /><stop offset="100%" style="stop-color:#F0F8FF;stop-opacity:0.3" /></linearGradient></defs><rect width="100%" height="100%" fill="url(#sunset)"/><circle cx="650" cy="150" r="80" fill="rgba(255,200,0,0.7)"/></svg>`),
+    src: '/uploads/2025/02/Elfrida_sunset_5033_03_q3-scaled.jpg',
     title: 'Elfrida Sunset',
     description: 'Golden hour capturing the subtle interplay of light and landscape.',
     category: 'Landscape'
   },
   {
     id: 'foam-study-1',
-    src: 'data:image/svg+xml;base64,' + btoa(`<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="foam1"><stop offset="0%" style="stop-color:#F0F8FF;stop-opacity:0.9" /><stop offset="100%" style="stop-color:#01019b;stop-opacity:1" /></radialGradient></defs><rect width="100%" height="100%" fill="url(#foam1)"/><circle cx="200" cy="150" r="60" fill="rgba(240,248,255,0.4)"/><circle cx="450" cy="300" r="80" fill="rgba(205,0,255,0.2)"/><circle cx="650" cy="450" r="50" fill="rgba(240,248,255,0.3)"/></svg>`),
+    src: '/uploads/2025/02/Foam_5590_03_q3-scaled.jpg',
     title: 'Foam Study I',
     description: 'Organic patterns in ocean foam revealing natural abstractions.',
     category: 'Abstract'
   },
   {
     id: 'foam-study-2',
-    src: 'data:image/svg+xml;base64,' + btoa(`<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="foam2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#F0F8FF;stop-opacity:0.8" /><stop offset="100%" style="stop-color:#1B2A41;stop-opacity:1" /></linearGradient></defs><rect width="100%" height="100%" fill="url(#foam2)"/><path d="M0,200 Q200,100 400,200 Q600,300 800,200" fill="none" stroke="rgba(240,248,255,0.6)" stroke-width="4"/><path d="M0,400 Q200,300 400,400 Q600,500 800,400" fill="none" stroke="rgba(205,0,255,0.4)" stroke-width="3"/></svg>`),
+    src: '/uploads/2025/02/Foam_5599_06g_q3-scaled.jpg',
     title: 'Foam Study II',
     description: 'Continued exploration of texture and form in natural patterns.',
     category: 'Abstract'
   },
   {
     id: 'foam-study-3',
-    src: 'data:image/svg+xml;base64,' + btoa(`<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="foam3"><stop offset="20%" style="stop-color:#F0F8FF;stop-opacity:0.7" /><stop offset="80%" style="stop-color:#01019b;stop-opacity:1" /></radialGradient></defs><rect width="100%" height="100%" fill="url(#foam3)"/><polygon points="300,100 500,200 400,400 200,300" fill="rgba(240,248,255,0.3)"/><polygon points="500,150 700,250 600,450 400,350" fill="rgba(205,0,255,0.2)"/></svg>`),
+    src: '/uploads/2025/02/Foam_5625_9k_q3-scaled.jpg',
     title: 'Foam Study III',
     description: 'Complex geometries emerging from simple natural processes.',
     category: 'Abstract'
   },
   {
     id: 'foam-study-4',
-    src: 'data:image/svg+xml;base64,' + btoa(`<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="foam4" x1="0%" y1="50%" x2="100%" y2="50%"><stop offset="0%" style="stop-color:#01019b;stop-opacity:1" /><stop offset="50%" style="stop-color:#F0F8FF;stop-opacity:0.6" /><stop offset="100%" style="stop-color:#1B2A41;stop-opacity:1" /></linearGradient></defs><rect width="100%" height="100%" fill="url(#foam4)"/><ellipse cx="400" cy="300" rx="200" ry="100" fill="rgba(205,0,255,0.3)"/><ellipse cx="400" cy="300" rx="100" ry="200" fill="rgba(240,248,255,0.2)"/></svg>`),
+    src: '/uploads/2025/02/Foam_5662_c4_q3-scaled.jpg',
     title: 'Foam Study IV',
     description: 'Delicate balance between chaos and order in organic forms.',
     category: 'Abstract'
   },
   {
-    id: 'architecture-1',
-    src: 'data:image/svg+xml;base64,' + btoa(`<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="arch" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:#1B2A41;stop-opacity:1" /><stop offset="100%" style="stop-color:#01019b;stop-opacity:1" /></linearGradient></defs><rect width="100%" height="100%" fill="url(#arch)"/><rect x="200" y="100" width="400" height="400" fill="none" stroke="rgba(240,248,255,0.7)" stroke-width="3"/><rect x="300" y="200" width="200" height="200" fill="rgba(205,0,255,0.2)"/><line x1="100" y1="0" x2="700" y2="600" stroke="rgba(240,248,255,0.4)" stroke-width="2"/></svg>`),
-    title: 'Architectural Form',
+    id: 'architectural-forms',
+    src: '/uploads/2025/02/I1A1575_02-scaled.jpg',
+    title: 'Architectural Forms',
     description: 'Geometric abstractions found in built environments.',
     category: 'Architecture'
   },
   {
     id: 'lava-texture',
-    src: 'data:image/svg+xml;base64,' + btoa(`<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="lava"><stop offset="0%" style="stop-color:#cd00ff;stop-opacity:0.8" /><stop offset="70%" style="stop-color:#1B2A41;stop-opacity:0.9" /><stop offset="100%" style="stop-color:#000000;stop-opacity:1" /></radialGradient></defs><rect width="100%" height="100%" fill="url(#lava)"/><path d="M0,300 Q200,100 400,300 Q600,500 800,300" fill="rgba(205,0,255,0.4)"/><path d="M0,400 Q200,200 400,400 Q600,600 800,400" fill="rgba(240,248,255,0.2)"/></svg>`),
+    src: '/uploads/2025/02/Lava_7444_10_H02_6k_q3-scaled.jpg',
     title: 'Volcanic Texture',
     description: 'The raw power of geological formation captured in detail.',
     category: 'Nature'
   },
   {
-    id: 'sand-patterns',
-    src: 'data:image/svg+xml;base64,' + btoa(`<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sand" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#F0F8FF;stop-opacity:0.4" /><stop offset="50%" style="stop-color:#1B2A41;stop-opacity:0.7" /><stop offset="100%" style="stop-color:#01019b;stop-opacity:1" /></linearGradient></defs><rect width="100%" height="100%" fill="url(#sand)"/><path d="M0,150 Q200,50 400,150 Q600,250 800,150" fill="none" stroke="rgba(240,248,255,0.5)" stroke-width="2"/><path d="M0,300 Q200,200 400,300 Q600,400 800,300" fill="none" stroke="rgba(205,0,255,0.3)" stroke-width="2"/><path d="M0,450 Q200,350 400,450 Q600,550 800,450" fill="none" stroke="rgba(240,248,255,0.3)" stroke-width="2"/></svg>`),
-    title: 'Sand Patterns',
-    description: 'Wind-carved abstractions in desert landscapes.',
+    id: 'stone-chromism',
+    src: '/uploads/2025/02/StoneChromism_6128_4k_q3-scaled.jpg',
+    title: 'Stone Chromism',
+    description: 'Natural color variations revealing geological history.',
     category: 'Abstract'
+  },
+  {
+    id: 'wonka-meadow',
+    src: '/uploads/2025/02/WonkaMeadow_6306_04_q3-scaled.jpg',
+    title: 'Wonka Meadow',
+    description: 'Whimsical landscape transforming perception of natural forms.',
+    category: 'Landscape'
+  },
+  {
+    id: 'vortex-motion',
+    src: '/uploads/2025/02/Vortex_9796_03_q3-scaled.jpg',
+    title: 'Vortex Motion',
+    description: 'Dynamic energy patterns captured in natural movement.',
+    category: 'Abstract'
+  },
+  {
+    id: 'water-symphony',
+    src: '/uploads/2025/02/Water_7142_03_14k_crop01_q3-scaled.jpg',
+    title: 'Water Symphony',
+    description: 'Fluid dynamics creating abstract compositions.',
+    category: 'Nature'
   }
 ]
 
@@ -120,18 +141,6 @@ export default function PhotoSection() {
       ref={containerRef}
       className="relative min-h-screen py-20 bg-gradient-to-b from-deep-blue to-dark-grey overflow-hidden"
     >
-      {/* Parallax Background */}
-      <ParallaxContainer speed={-0.3} className="absolute inset-0">
-        <motion.div 
-          style={{ y: backgroundY }}
-          className="h-[130vh] w-full bg-gradient-to-br from-dark-grey via-deep-blue to-dark-grey"
-          suppressHydrationWarning
-        >
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_40%_60%,rgba(205,0,255,0.08),transparent_60%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_30%,rgba(240,248,255,0.06),transparent_50%)]" />
-        </motion.div>
-      </ParallaxContainer>
-
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <motion.div 
@@ -241,7 +250,7 @@ export default function PhotoSection() {
                   whileHover={{ scale: 1, rotate: 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="bg-black/70 backdrop-blur-sm rounded-full px-3 py-1 border border-magenta/30">
+                  <div className="bg-hypnotic-white/70 backdrop-blur-sm rounded-full px-3 py-1 border border-magenta/30">
                     <span className="text-magenta text-xs font-semibold">{image.category}</span>
                   </div>
                 </motion.div>
@@ -258,7 +267,7 @@ export default function PhotoSection() {
                 </motion.div>
 
                 {/* Image Info */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-gradient-to-t from-black/90 to-transparent">
+                <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-gradient-to-t from-hypnotic-white/90 to-transparent">
                   <h3 className="text-hypnotic-white font-bold text-lg mb-2">
                     {image.title}
                   </h3>
@@ -278,7 +287,7 @@ export default function PhotoSection() {
           transition={{ duration: 0.8 }}
           className="text-center"
         >
-          <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-12 border border-hypnotic-white/10">
+          <div className="bg-hypnotic-white/30 backdrop-blur-sm rounded-2xl p-12 border border-deep-blue/10">
             <div className="flex justify-center mb-6">
               <Palette className="w-10 h-10 text-magenta" />
             </div>

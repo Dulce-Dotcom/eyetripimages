@@ -67,6 +67,19 @@ export default function Immersive3DSection() {
       ref={containerRef}
       className="relative h-screen w-full overflow-hidden bg-gradient-to-b from-deep-blue via-dark-grey to-deep-blue"
     >
+      {/* Background Video */}
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src="/video/stumpy_rect_16_9_4ktest.mp4" type="video/mp4" />
+        </video>
+      </div>
+
       {/* 3D Babylon Scene - Background */}
       <motion.div 
         style={{ opacity: sceneOpacity }}

@@ -9,7 +9,7 @@ import ParallaxContainer from './ParallaxContainer'
 const gigapixelImages = [
   {
     id: 'disappearing-mist',
-    src: 'data:image/svg+xml;base64,' + btoa(`<svg width="1600" height="1000" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#01019b;stop-opacity:1" /><stop offset="50%" style="stop-color:#1B2A41;stop-opacity:1" /><stop offset="100%" style="stop-color:#cd00ff;stop-opacity:0.3" /></linearGradient></defs><rect width="100%" height="100%" fill="url(#grad1)"/><circle cx="400" cy="300" r="150" fill="rgba(240,248,255,0.1)"/><circle cx="1200" cy="700" r="200" fill="rgba(205,0,255,0.15)"/></svg>`),
+    src: '/uploads/2025/02/I1A2429_018kcapq8-1-scaled.jpg',
     title: 'Disappearing into the Mist',
     dimensions: '22,396 x 12,441 pixels',
     description: 'Ultra-high resolution capture revealing infinite detail in atmospheric conditions.',
@@ -18,7 +18,7 @@ const gigapixelImages = [
   },
   {
     id: 'into-fog',
-    src: 'data:image/svg+xml;base64,' + btoa(`<svg width="1600" height="1000" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="grad2"><stop offset="0%" style="stop-color:#F0F8FF;stop-opacity:0.8" /><stop offset="70%" style="stop-color:#1B2A41;stop-opacity:1" /><stop offset="100%" style="stop-color:#01019b;stop-opacity:1" /></radialGradient></defs><rect width="100%" height="100%" fill="url(#grad2)"/><polygon points="0,800 400,600 800,750 1200,500 1600,700 1600,1000 0,1000" fill="rgba(205,0,255,0.2)"/></svg>`),
+    src: '/uploads/2025/02/I1A2511_108kcapq8-scaled.jpg',
     title: 'Into the Fog',
     dimensions: '31,165 x 17,941 pixels',
     description: 'Panoramic stitched photography revealing layers within layers of natural beauty.',
@@ -27,7 +27,7 @@ const gigapixelImages = [
   },
   {
     id: 'side-barn',
-    src: 'data:image/svg+xml;base64,' + btoa(`<svg width="1600" height="1000" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="grad3" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:#1B2A41;stop-opacity:1" /><stop offset="100%" style="stop-color:#01019b;stop-opacity:1" /></linearGradient></defs><rect width="100%" height="100%" fill="url(#grad3)"/><rect x="200" y="100" width="1200" height="800" fill="none" stroke="rgba(205,0,255,0.3)" stroke-width="4"/><rect x="400" y="200" width="800" height="600" fill="rgba(240,248,255,0.05)"/></svg>`),
+    src: '/uploads/2025/02/I1A2582_078kcapq8-scaled.jpg',
     title: 'Side of a Barn',
     dimensions: '35,436 x 43,265 pixels',
     description: 'Architectural details captured at unprecedented resolution.',
@@ -36,7 +36,7 @@ const gigapixelImages = [
   },
   {
     id: 'uplift',
-    src: 'data:image/svg+xml;base64,' + btoa(`<svg width="1600" height="1000" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="grad4" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#01019b;stop-opacity:1" /><stop offset="30%" style="stop-color:#cd00ff;stop-opacity:0.4" /><stop offset="70%" style="stop-color:#1B2A41;stop-opacity:1" /><stop offset="100%" style="stop-color:#F0F8FF;stop-opacity:0.6" /></linearGradient></defs><rect width="100%" height="100%" fill="url(#grad4)"/><path d="M0,1000 Q400,200 800,600 T1600,300 L1600,1000 Z" fill="rgba(205,0,255,0.2)"/></svg>`),
+    src: '/uploads/2025/02/I1A4878_058kcapq8-scaled.jpg',
     title: 'Uplift',
     dimensions: '72,468 x 41,769 pixels',
     description: 'Geological formations in extraordinary detail, revealing textures invisible to the naked eye.',
@@ -45,12 +45,39 @@ const gigapixelImages = [
   },
   {
     id: 'matrix-fountain',
-    src: 'data:image/svg+xml;base64,' + btoa(`<svg width="1600" height="1000" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="grad5"><stop offset="0%" style="stop-color:#cd00ff;stop-opacity:0.6" /><stop offset="50%" style="stop-color:#1B2A41;stop-opacity:0.8" /><stop offset="100%" style="stop-color:#01019b;stop-opacity:1" /></radialGradient></defs><rect width="100%" height="100%" fill="url(#grad5)"/><circle cx="800" cy="500" r="300" fill="none" stroke="rgba(240,248,255,0.3)" stroke-width="2"/><circle cx="800" cy="500" r="200" fill="none" stroke="rgba(205,0,255,0.4)" stroke-width="3"/><circle cx="800" cy="500" r="100" fill="rgba(240,248,255,0.1)"/></svg>`),
+    src: '/uploads/2025/02/I1A5872_088kcapq8-scaled.jpg',
     title: 'Matrix Fountain',
     dimensions: '57,344 x 36,864 pixels',
     description: 'Digital painting captured in gigapixel resolution for infinite exploration.',
     megapixels: '2,115.1 MP',
     printSize: '191 x 123 feet at 300 DPI'
+  },
+  {
+    id: 'fossil-falls',
+    src: '/uploads/2025/02/MG_7379_03_6k_q3-scaled.jpg',
+    title: 'Fossil Falls Cliff Face',
+    dimensions: '19,395 x 11,011 pixels',
+    description: 'Dramatic cliff formations captured with extraordinary geological detail.',
+    megapixels: '213.6 MP',
+    printSize: '65 x 37 feet at 300 DPI'
+  },
+  {
+    id: 'mycocosm',
+    src: '/uploads/2025/02/mycososm_7563_06_6k_q3b-scaled.jpg',
+    title: 'Mycocosm',
+    dimensions: '19,187 x 13,865 pixels',
+    description: 'Microscopic worlds revealed through gigapixel stitching technology.',
+    megapixels: '266.1 MP',
+    printSize: '64 x 46 feet at 300 DPI'
+  },
+  {
+    id: 'crossings-carlsbad',
+    src: '/uploads/2025/02/N9A0528_01-scaled.jpg',
+    title: 'Crossings at Carlsbad',
+    dimensions: '10,563 x 3,861 pixels',
+    description: 'Architectural intersections captured in stunning panoramic detail.',
+    megapixels: '40.8 MP',
+    printSize: '35 x 13 feet at 300 DPI'
   }
 ]
 
@@ -71,17 +98,13 @@ export default function GigapixelSection() {
     offset: ["start end", "end start"]
   })
   
-  const mouseX = useMotionValue(0)
-  const mouseY = useMotionValue(0)
+  // Restore parallax and title animations
+  const backgroundY = useTransform(scrollYProgress, [0, 1], [0, -100])
+  const titleScale = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.9, 1, 1, 0.95])
+  const titleOpacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0])
   
-  const backgroundY = useTransform(scrollYProgress, [0, 1], [0, -200])
-  const titleScale = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.8, 1, 1, 0.9])
-  const titleOpacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0])
-  
-  // Create spring animations for smooth mouse following
-  const springConfig = { damping: 25, stiffness: 700 }
-  const cursorX = useSpring(mouseX, springConfig)
-  const cursorY = useSpring(mouseY, springConfig)
+  // Improved mouse tracking for hover effects
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
   
   const openLightbox = (imageIndex: number) => {
     setCurrentImageIndex(imageIndex)
@@ -100,37 +123,21 @@ export default function GigapixelSection() {
     setCurrentImageIndex((prev) => (prev - 1 + gigapixelImages.length) % gigapixelImages.length)
   }
   
-  const handleMouseMove = (e: React.MouseEvent) => {
-    const rect = e.currentTarget.getBoundingClientRect()
-    mouseX.set(e.clientX - rect.left)
-    mouseY.set(e.clientY - rect.top)
+  const handleMouseMove = (e: React.MouseEvent, imageId?: string) => {
+    if (imageId && hoveredImage === imageId) {
+      const rect = e.currentTarget.getBoundingClientRect()
+      setMousePos({
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top
+      })
+    }
   }
   
   return (
     <section 
       ref={containerRef}
-      className="relative min-h-screen py-20 overflow-hidden bg-gradient-to-b from-dark-grey to-deep-blue"
-      onMouseMove={handleMouseMove}
+      className="relative min-h-screen py-20 overflow-hidden bg-gradient-to-b from-dark-grey to-magenta"
     >
-      {/* Multi-layered Parallax Background */}
-      <ParallaxContainer speed={-0.4} className="absolute inset-0">
-        <motion.div 
-          style={{ y: backgroundY }}
-          className="h-[140vh] w-full"
-          suppressHydrationWarning
-        >
-          <div className="absolute inset-0 bg-gradient-to-br from-deep-blue via-dark-grey to-deep-blue" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(205,0,255,0.1),transparent_60%)]" />
-        </motion.div>
-      </ParallaxContainer>
-      
-      <ParallaxContainer speed={-0.2} className="absolute inset-0">
-        <div className="h-[120vh] w-full">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_75%,rgba(240,248,255,0.05),transparent_50%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(205,0,255,0.08),transparent_70%)]" />
-        </div>
-      </ParallaxContainer>
-
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <motion.div 
@@ -169,66 +176,53 @@ export default function GigapixelSection() {
         {/* Gigapixel Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
           {gigapixelImages.map((image, index) => (
-            <motion.div
+            <div
               key={image.id}
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
-              className="group relative cursor-pointer"
+              className="group relative cursor-pointer opacity-0 animate-fade-in"
+              style={{ animationDelay: `${index * 200}ms` }}
               onMouseEnter={() => setHoveredImage(image.id)}
               onMouseLeave={() => setHoveredImage(null)}
+              onMouseMove={(e) => handleMouseMove(e, image.id)}
               onClick={() => openLightbox(index)}
             >
               {/* Image Container with Zoom Effect */}
               <div className="relative overflow-hidden rounded-lg aspect-[16/10] bg-dark-grey">
-                <motion.img
+                <img
                   src={image.src}
                   alt={image.title}
-                  className="w-full h-full object-cover"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.6 }}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 
                 {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-hypnotic-white/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
                 {/* Zoom Indicator */}
-                <motion.div 
-                  className="absolute top-4 right-4 opacity-0 group-hover:opacity-100"
-                  initial={{ scale: 0 }}
-                  whileHover={{ scale: 1 }}
-                  transition={{ duration: 0.3 }}
-                >
+                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110">
                   <div className="bg-magenta/90 backdrop-blur-sm rounded-full p-3 border border-hypnotic-white/20">
                     <ZoomIn className="w-6 h-6 text-hypnotic-white" />
                   </div>
-                </motion.div>
+                </div>
 
                 {/* Detail Level Indicator */}
-                <motion.div 
-                  className="absolute top-4 left-4 opacity-0 group-hover:opacity-100"
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className="bg-black/70 backdrop-blur-sm rounded-lg px-3 py-2 border border-magenta/30">
+                <div className="absolute top-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="bg-hypnotic-white/70 backdrop-blur-sm rounded-lg px-3 py-2 border border-magenta/30">
                     <span className="text-magenta font-bold text-sm">{image.megapixels}</span>
                   </div>
-                </motion.div>
+                </div>
 
-                {/* Interactive Zoom Preview on Hover */}
+                {/* Interactive Zoom Preview */}
                 {hoveredImage === image.id && (
-                  <motion.div
+                  <div
+                    className="absolute w-32 h-32 pointer-events-none border-2 border-magenta/70 rounded-lg bg-magenta/20 backdrop-blur-sm shadow-lg shadow-magenta/20"
                     style={{
-                      x: cursorX,
-                      y: cursorY,
+                      left: Math.max(8, Math.min(mousePos.x - 64, 300)), // Keep within image bounds
+                      top: Math.max(8, Math.min(mousePos.y - 64, 150)),
+                      transform: 'translate(0, 0)', // Ensure smooth positioning
                     }}
-                    className="absolute w-32 h-32 pointer-events-none border-2 border-magenta/60 rounded-lg bg-magenta/10 backdrop-blur-sm"
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0 }}
-                    suppressHydrationWarning
                   >
-                    <div className="absolute inset-1 border border-hypnotic-white/30 rounded" />
-                  </motion.div>
+                    <div className="absolute inset-2 border border-hypnotic-white/50 rounded" />
+                    <div className="absolute inset-4 border border-magenta/30 rounded" />
+                  </div>
                 )}
               </div>
 
@@ -253,18 +247,15 @@ export default function GigapixelSection() {
               </div>
 
               {/* Click to Explore Indicator */}
-              <motion.div 
-                className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100"
-                initial={{ y: 10 }}
-                whileHover={{ y: 0 }}
-                transition={{ duration: 0.3 }}
+              <div 
+                className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:translate-y-[-2px]"
               >
-                <div className="flex items-center gap-2 bg-black/70 backdrop-blur-sm rounded-full px-4 py-2 border border-magenta/30">
+                <div className="flex items-center gap-2 bg-hypnotic-white/70 backdrop-blur-sm rounded-full px-4 py-2 border border-magenta/30">
                   <Maximize className="w-4 h-4 text-magenta" />
                   <span className="text-hypnotic-white text-sm">Explore Detail</span>
                 </div>
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
           ))}
         </div>
 
@@ -275,7 +266,7 @@ export default function GigapixelSection() {
           transition={{ duration: 0.8 }}
           className="text-center"
         >
-          <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-8 border border-hypnotic-white/10">
+          <div className="bg-hypnotic-white/30 backdrop-blur-sm rounded-2xl p-8 border border-deep-blue/10">
             <h3 className="text-3xl font-semibold text-magenta mb-6">
               Unprecedented Detail
             </h3>
@@ -314,35 +305,18 @@ export default function GigapixelSection() {
         onPrevious={previousImage}
       />
 
-      {/* Floating Detail Elements */}
+      {/* Minimal Background Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {Array.from({ length: 6 }).map((_, i) => (
-          <motion.div
+        {Array.from({ length: 3 }).map((_, i) => (
+          <div
             key={i}
-            initial={{ 
-              opacity: 0,
-              x: Math.random() * 100 + '%',
-              y: Math.random() * 100 + '%'
+            className="absolute w-1 h-1 bg-magenta/30 rounded-full animate-pulse"
+            style={{
+              left: 20 + (i * 30) + '%',
+              top: 30 + (i * 20) + '%',
+              animationDelay: `${i * 2}s`,
+              animationDuration: '4s'
             }}
-            animate={{
-              opacity: [0, 0.2, 0],
-              x: [
-                Math.random() * 100 + '%', 
-                Math.random() * 100 + '%', 
-                Math.random() * 100 + '%'
-              ],
-              y: [
-                Math.random() * 100 + '%', 
-                Math.random() * 100 + '%', 
-                Math.random() * 100 + '%'
-              ]
-            }}
-            transition={{
-              duration: 30 + Math.random() * 20,
-              repeat: Infinity,
-              delay: Math.random() * 10
-            }}
-            className="absolute w-1 h-1 bg-magenta/60 rounded-full"
           />
         ))}
       </div>
