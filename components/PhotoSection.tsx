@@ -9,84 +9,84 @@ import ParallaxContainer from './ParallaxContainer'
 const photographyImages = [
   {
     id: 'crush-texture',
-    src: '/uploads/2025/02/Crush_5625_03_q3-scaled.jpg',
+    src: '/eyetripimages/uploads/2025/02/Crush_5625_03_q3-scaled.jpg',
     title: 'Crush #5625',
     description: 'Abstract textural study emphasizing form over content.',
     category: 'Abstract'
   },
   {
     id: 'elfrida-sunset',
-    src: '/uploads/2025/02/Elfrida_sunset_5033_03_q3-scaled.jpg',
+    src: '/eyetripimages/uploads/2025/02/Elfrida_sunset_5033_03_q3-scaled.jpg',
     title: 'Elfrida Sunset',
     description: 'Golden hour capturing the subtle interplay of light and landscape.',
     category: 'Landscape'
   },
   {
     id: 'foam-study-1',
-    src: '/uploads/2025/02/Foam_5590_03_q3-scaled.jpg',
+    src: '/eyetripimages/uploads/2025/02/Foam_5590_03_q3-scaled.jpg',
     title: 'Foam Study I',
     description: 'Organic patterns in ocean foam revealing natural abstractions.',
     category: 'Abstract'
   },
   {
     id: 'foam-study-2',
-    src: '/uploads/2025/02/Foam_5599_06g_q3-scaled.jpg',
+    src: '/eyetripimages/uploads/2025/02/Foam_5599_06g_q3-scaled.jpg',
     title: 'Foam Study II',
     description: 'Continued exploration of texture and form in natural patterns.',
     category: 'Abstract'
   },
   {
     id: 'foam-study-3',
-    src: '/uploads/2025/02/Foam_5625_9k_q3-scaled.jpg',
+    src: '/eyetripimages/uploads/2025/02/Foam_5625_9k_q3-scaled.jpg',
     title: 'Foam Study III',
     description: 'Complex geometries emerging from simple natural processes.',
     category: 'Abstract'
   },
   {
     id: 'foam-study-4',
-    src: '/uploads/2025/02/Foam_5662_c4_q3-scaled.jpg',
+    src: '/eyetripimages/uploads/2025/02/Foam_5662_c4_q3-scaled.jpg',
     title: 'Foam Study IV',
     description: 'Delicate balance between chaos and order in organic forms.',
     category: 'Abstract'
   },
   {
     id: 'architectural-forms',
-    src: '/uploads/2025/02/I1A1575_02-scaled.jpg',
+    src: '/eyetripimages/uploads/2025/02/I1A1575_02-scaled.jpg',
     title: 'Architectural Forms',
     description: 'Geometric abstractions found in built environments.',
     category: 'Architecture'
   },
   {
     id: 'lava-texture',
-    src: '/uploads/2025/02/Lava_7444_10_H02_6k_q3-scaled.jpg',
+    src: '/eyetripimages/uploads/2025/02/Lava_7444_10_H02_6k_q3-scaled.jpg',
     title: 'Volcanic Texture',
     description: 'The raw power of geological formation captured in detail.',
     category: 'Nature'
   },
   {
     id: 'stone-chromism',
-    src: '/uploads/2025/02/StoneChromism_6128_4k_q3-scaled.jpg',
+    src: '/eyetripimages/uploads/2025/02/StoneChromism_6128_4k_q3-scaled.jpg',
     title: 'Stone Chromism',
     description: 'Natural color variations revealing geological history.',
     category: 'Abstract'
   },
   {
     id: 'wonka-meadow',
-    src: '/uploads/2025/02/WonkaMeadow_6306_04_q3-scaled.jpg',
+    src: '/eyetripimages/uploads/2025/02/WonkaMeadow_6306_04_q3-scaled.jpg',
     title: 'Wonka Meadow',
     description: 'Whimsical landscape transforming perception of natural forms.',
     category: 'Landscape'
   },
   {
     id: 'vortex-motion',
-    src: '/uploads/2025/02/Vortex_9796_03_q3-scaled.jpg',
+    src: '/eyetripimages/uploads/2025/02/Vortex_9796_03_q3-scaled.jpg',
     title: 'Vortex Motion',
     description: 'Dynamic energy patterns captured in natural movement.',
     category: 'Abstract'
   },
   {
     id: 'water-symphony',
-    src: '/uploads/2025/02/Water_7142_03_14k_crop01_q3-scaled.jpg',
+    src: '/eyetripimages/uploads/2025/02/Water_7142_03_14k_crop01_q3-scaled.jpg',
     title: 'Water Symphony',
     description: 'Fluid dynamics creating abstract compositions.',
     category: 'Nature'

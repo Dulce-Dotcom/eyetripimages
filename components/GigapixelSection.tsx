@@ -9,7 +9,7 @@ import ParallaxContainer from './ParallaxContainer'
 const gigapixelImages = [
   {
     id: 'disappearing-mist',
-    src: '/uploads/2025/02/I1A2429_018kcapq8-1-scaled.jpg',
+    src: '/eyetripimages/uploads/2025/02/I1A2429_018kcapq8-1-scaled.jpg',
     title: 'Disappearing into the Mist',
     dimensions: '22,396 x 12,441 pixels',
     description: 'Ultra-high resolution capture revealing infinite detail in atmospheric conditions.',
@@ -18,7 +18,7 @@ const gigapixelImages = [
   },
   {
     id: 'into-fog',
-    src: '/uploads/2025/02/I1A2511_108kcapq8-scaled.jpg',
+    src: '/eyetripimages/uploads/2025/02/I1A2511_108kcapq8-scaled.jpg',
     title: 'Into the Fog',
     dimensions: '31,165 x 17,941 pixels',
     description: 'Panoramic stitched photography revealing layers within layers of natural beauty.',
@@ -27,7 +27,7 @@ const gigapixelImages = [
   },
   {
     id: 'side-barn',
-    src: '/uploads/2025/02/I1A2582_078kcapq8-scaled.jpg',
+    src: '/eyetripimages/uploads/2025/02/I1A2582_078kcapq8-scaled.jpg',
     title: 'Side of a Barn',
     dimensions: '35,436 x 43,265 pixels',
     description: 'Architectural details captured at unprecedented resolution.',
@@ -36,7 +36,7 @@ const gigapixelImages = [
   },
   {
     id: 'uplift',
-    src: '/uploads/2025/02/I1A4878_058kcapq8-scaled.jpg',
+    src: '/eyetripimages/uploads/2025/02/I1A4878_058kcapq8-scaled.jpg',
     title: 'Uplift',
     dimensions: '72,468 x 41,769 pixels',
     description: 'Geological formations in extraordinary detail, revealing textures invisible to the naked eye.',
@@ -45,7 +45,7 @@ const gigapixelImages = [
   },
   {
     id: 'matrix-fountain',
-    src: '/uploads/2025/02/I1A5872_088kcapq8-scaled.jpg',
+    src: '/eyetripimages/uploads/2025/02/I1A5872_088kcapq8-scaled.jpg',
     title: 'Matrix Fountain',
     dimensions: '57,344 x 36,864 pixels',
     description: 'Digital painting captured in gigapixel resolution for infinite exploration.',
@@ -54,7 +54,7 @@ const gigapixelImages = [
   },
   {
     id: 'fossil-falls',
-    src: '/uploads/2025/02/MG_7379_03_6k_q3-scaled.jpg',
+    src: '/eyetripimages/uploads/2025/02/MG_7379_03_6k_q3-scaled.jpg',
     title: 'Fossil Falls Cliff Face',
     dimensions: '19,395 x 11,011 pixels',
     description: 'Dramatic cliff formations captured with extraordinary geological detail.',
@@ -63,7 +63,7 @@ const gigapixelImages = [
   },
   {
     id: 'mycocosm',
-    src: '/uploads/2025/02/mycososm_7563_06_6k_q3b-scaled.jpg',
+    src: '/eyetripimages/uploads/2025/02/mycososm_7563_06_6k_q3b-scaled.jpg',
     title: 'Mycocosm',
     dimensions: '19,187 x 13,865 pixels',
     description: 'Microscopic worlds revealed through gigapixel stitching technology.',
@@ -72,7 +72,7 @@ const gigapixelImages = [
   },
   {
     id: 'crossings-carlsbad',
-    src: '/uploads/2025/02/N9A0528_01-scaled.jpg',
+    src: '/eyetripimages/uploads/2025/02/N9A0528_01-scaled.jpg',
     title: 'Crossings at Carlsbad',
     dimensions: '10,563 x 3,861 pixels',
     description: 'Architectural intersections captured in stunning panoramic detail.',
@@ -98,8 +98,7 @@ export default function GigapixelSection() {
     offset: ["start end", "end start"]
   })
   
-  // Restore parallax and title animations
-  const backgroundY = useTransform(scrollYProgress, [0, 1], [0, -100])
+  // Title animations
   const titleScale = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.9, 1, 1, 0.95])
   const titleOpacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0])
   

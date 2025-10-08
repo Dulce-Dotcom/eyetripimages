@@ -76,7 +76,7 @@ export default function Immersive3DSection() {
           playsInline
           className="w-full h-full object-cover"
         >
-          <source src="/video/stumpy_rect_16_9_4ktest.mp4" type="video/mp4" />
+          <source src="/eyetripimages/video/stumpy_rect_16_9_4ktest.mp4" type="video/mp4" />
         </video>
       </div>
 

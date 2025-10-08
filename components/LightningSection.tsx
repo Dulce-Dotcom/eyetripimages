@@ -8,7 +8,7 @@ import ImageLightbox from './ImageLightbox'
 const lightningImages = [
   {
     id: 'corkscrew-miss',
-    src: '/uploads/2025/02/L0271c2_02_6k_02_2kq1.jpg',
+    src: '/eyetripimages/uploads/2025/02/L0271c2_02_6k_02_2kq1.jpg',
     title: 'Corkscrew Near Miss',
     description: 'A powerful lightning strike with unique spiral formation captured near Wilcox, Arizona.',
     location: 'Wilcox, Arizona',
@@ -16,7 +16,7 @@ const lightningImages = [
   },
   {
     id: 'triple-strike',
-    src: '/uploads/2025/02/Cochise_lightning_4255_02.jpg',
+    src: '/eyetripimages/uploads/2025/02/Cochise_lightning_4255_02.jpg',
     title: 'Triple Lightning Strike',
     description: 'A powerful triple lightning strike near Wilcox, Arizona.',
     location: 'Wilcox, Arizona',
@@ -24,7 +24,7 @@ const lightningImages = [
   },
   {
     id: 'windmill-double',
-    src: '/uploads/2025/02/Cochise_lightning_4272_03-scaled.jpg',
+    src: '/eyetripimages/uploads/2025/02/Cochise_lightning_4272_03-scaled.jpg',
     title: 'Double Strike at Windmill',
     description: 'A powerful double lightning strike near a windmill in Cochise, Arizona.',
     location: 'Cochise, Arizona',
@@ -32,7 +32,7 @@ const lightningImages = [
   },
   {
     id: 'serpentine-strike',
-    src: '/uploads/2025/02/Cochise_lightning_4315_02.jpg',
+    src: '/eyetripimages/uploads/2025/02/Cochise_lightning_4315_02.jpg',
     title: 'Serpentine Strike',
     description: 'An interestingly shaped lightning strike near a windmill in Cochise, Arizona.',
     location: 'Cochise, Arizona',
@@ -40,7 +40,7 @@ const lightningImages = [
   },
   {
     id: 'kid-gloves',
-    src: '/uploads/2025/02/Cochise_lightning_5213_03-scaled.jpg',
+    src: '/eyetripimages/uploads/2025/02/Cochise_lightning_5213_03-scaled.jpg',
     title: 'Kid Gloves',
     description: 'Let\'s not hurt the windmill - a delicate strike formation.',
     location: 'Cochise, Arizona',
@@ -48,7 +48,7 @@ const lightningImages = [
   },
   {
     id: 'elfrida-sunset',
-    src: '/uploads/2025/02/Elfrida_sunset_5033_03_q3-scaled.jpg',
+    src: '/eyetripimages/uploads/2025/02/Elfrida_sunset_5033_03_q3-scaled.jpg',
     title: 'Purple Glow Over Tucson',
     description: 'Lightning casts an eerie purple glow, amid the warm illumination of Tucson.',
     location: 'Tucson, Arizona',
