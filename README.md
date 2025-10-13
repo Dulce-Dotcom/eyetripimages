@@ -3,7 +3,7 @@
 A Next.js portfolio website showcasing immersive visual experiences.
 
 ## Live Site
-[https://dulce-dotcom.github.io/eyetripimages/](https://dulce-dotcom.github.io/eyetripimages/)
+🚀 [https://dulce-dotcom.github.io/eyetripimages/](https://dulce-dotcom.github.io/eyetripimages/)
 
 ## GitHub Pages Deployment
 
