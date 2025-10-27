@@ -55,8 +55,8 @@ export default function ImageLightbox({
   useEffect(() => {
     const updateContainerSize = () => {
       setContainerDimensions({
-        width: window.innerWidth - 128, // Account for padding
-        height: window.innerHeight - 192 // Account for controls and padding
+        width: window.innerWidth - 32, // Minimal padding
+        height: window.innerHeight - 32 // Minimal padding for controls
       })
     }
     
@@ -247,23 +247,23 @@ export default function ImageLightbox({
         )}
 
         {/* Controls */}
-        <div className="sticky top-4 left-4 right-4 flex justify-between items-start z-10 mb-4">
+        <div className="fixed top-4 left-4 right-4 flex justify-between items-start z-30 pointer-events-none">
           {/* Image Info */}
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="bg-hypnotic-white/50 backdrop-blur-sm rounded-lg p-4 max-w-md max-h-40 overflow-y-auto"
+            className="bg-deep-blue/90 backdrop-blur-md rounded-lg p-3 max-w-sm pointer-events-auto shadow-xl"
           >
-            <h3 className="text-gray-700 font-semibold text-lg mb-1">
+            <h3 className="text-hypnotic-white font-semibold text-base mb-1">
               {currentImage.title}
             </h3>
             {currentImage.dimensions && (
-              <p className="text-gray-600 text-sm mb-2">
+              <p className="text-hypnotic-white/80 text-xs mb-1">
                 {currentImage.dimensions}
               </p>
             )}
             {currentImage.description && (
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <p className="text-hypnotic-white/70 text-xs leading-relaxed line-clamp-2">
                 {currentImage.description}
               </p>
             )}
@@ -273,14 +273,14 @@ export default function ImageLightbox({
           <motion.div 
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="flex gap-2"
+            className="flex gap-2 pointer-events-auto"
           >
             <button
               onClick={() => {
                 setZoom(prev => Math.max(prev / 1.2, 0.1))
                 setPosition(prev => constrainPosition(prev))
               }}
-              className="p-2 bg-hypnotic-white/50 backdrop-blur-sm rounded-lg text-deep-blue hover:bg-magenta/20 transition-colors"
+              className="p-2 bg-deep-blue/90 backdrop-blur-md rounded-lg text-hypnotic-white hover:bg-magenta/80 transition-colors shadow-xl"
               title="Zoom Out (-)"
             >
               <ZoomOut size={20} />
@@ -290,21 +290,21 @@ export default function ImageLightbox({
                 setZoom(prev => Math.min(prev * 1.2, 5))
                 setPosition(prev => constrainPosition(prev))
               }}
-              className="p-2 bg-hypnotic-white/50 backdrop-blur-sm rounded-lg text-deep-blue hover:bg-magenta/20 transition-colors"
+              className="p-2 bg-deep-blue/90 backdrop-blur-md rounded-lg text-hypnotic-white hover:bg-magenta/80 transition-colors shadow-xl"
               title="Zoom In (+)"
             >
               <ZoomIn size={20} />
             </button>
             <button
               onClick={() => setRotation(prev => prev + 90)}
-              className="p-2 bg-hypnotic-white/50 backdrop-blur-sm rounded-lg text-deep-blue hover:bg-magenta/20 transition-colors"
+              className="p-2 bg-deep-blue/90 backdrop-blur-md rounded-lg text-hypnotic-white hover:bg-magenta/80 transition-colors shadow-xl"
               title="Rotate (R)"
             >
               <RotateCw size={20} />
             </button>
-                        <button
+            <button
               onClick={onClose}
-              className="p-2 bg-hypnotic-white/50 backdrop-blur-sm rounded-lg text-deep-blue hover:bg-magenta/20 transition-colors"
+              className="p-2 bg-deep-blue/90 backdrop-blur-md rounded-lg text-hypnotic-white hover:bg-magenta/80 transition-colors shadow-xl"
               title="Close (Escape)"
             >
               <X size={20} />
@@ -317,14 +317,14 @@ export default function ImageLightbox({
           <>
             <button
               onClick={onPrevious}
-              className="fixed left-4 top-1/2 -translate-y-1/2 p-3 bg-hypnotic-white/70 backdrop-blur-sm rounded-full text-deep-blue hover:bg-magenta/20 transition-colors z-20 shadow-lg"
+              className="fixed left-4 top-1/2 -translate-y-1/2 p-3 bg-deep-blue/90 backdrop-blur-md rounded-full text-hypnotic-white hover:bg-magenta/80 transition-colors z-30 shadow-xl"
               title="Previous (←)"
             >
               <ChevronLeft size={24} />
             </button>
             <button
               onClick={onNext}
-              className="fixed right-4 top-1/2 -translate-y-1/2 p-3 bg-hypnotic-white/70 backdrop-blur-sm rounded-full text-deep-blue hover:bg-magenta/20 transition-colors z-20 shadow-lg"
+              className="fixed right-4 top-1/2 -translate-y-1/2 p-3 bg-deep-blue/90 backdrop-blur-md rounded-full text-hypnotic-white hover:bg-magenta/80 transition-colors z-30 shadow-xl"
               title="Next (→)"
             >
               <ChevronRight size={24} />
@@ -332,8 +332,8 @@ export default function ImageLightbox({
           </>
         )}
 
-        {/* Image container */}
-        <div className="flex items-center justify-center min-h-screen p-16 pt-24 pb-24">
+        {/* Image container - Full viewport */}
+        <div className="fixed inset-0 flex items-center justify-center z-10">
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ 
@@ -341,7 +341,7 @@ export default function ImageLightbox({
               opacity: imageLoaded ? 1 : 0 
             }}
             transition={{ duration: 0.3 }}
-            className="relative w-full h-full flex items-center justify-center overflow-hidden"
+            className="relative w-full h-full flex items-center justify-center"
             style={{
               cursor: zoom > 1 ? (isDragging ? 'grabbing' : 'grab') : 'move'
             }}
@@ -354,8 +354,10 @@ export default function ImageLightbox({
               style={{
                 transform: `scale(${zoom}) translate(${position.x / zoom}px, ${position.y / zoom}px) rotate(${rotation}deg)`,
                 transition: isDragging ? 'none' : 'transform 0.2s ease-out',
-                maxWidth: zoom > 1 ? 'none' : '100%',
-                maxHeight: zoom > 1 ? 'none' : '80vh'
+                maxWidth: zoom > 1 ? 'none' : '98vw',
+                maxHeight: zoom > 1 ? 'none' : '98vh',
+                width: zoom === 1 ? 'auto' : undefined,
+                height: zoom === 1 ? 'auto' : undefined
               }}
               onLoad={(e) => {
                 setImageLoaded(true)
@@ -376,9 +378,9 @@ export default function ImageLightbox({
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="fixed bottom-4 left-1/2 -translate-x-1/2 bg-hypnotic-white/70 backdrop-blur-sm rounded-lg px-4 py-2 z-20 shadow-lg"
+            className="fixed bottom-4 left-1/2 -translate-x-1/2 bg-deep-blue/90 backdrop-blur-md rounded-lg px-4 py-2 z-30 shadow-xl"
           >
-            <span className="text-deep-blue text-sm">
+            <span className="text-hypnotic-white text-sm font-medium">
               {currentIndex + 1} / {images.length}
             </span>
           </motion.div>
@@ -389,9 +391,9 @@ export default function ImageLightbox({
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="fixed bottom-4 right-4 bg-hypnotic-white/70 backdrop-blur-sm rounded-lg px-3 py-2 z-20 shadow-lg"
+            className="fixed bottom-4 right-4 bg-deep-blue/90 backdrop-blur-md rounded-lg px-3 py-2 z-30 shadow-xl"
           >
-            <span className="text-deep-blue text-sm">
+            <span className="text-hypnotic-white text-sm font-medium">
               {Math.round(zoom * 100)}%
             </span>
           </motion.div>
@@ -402,11 +404,11 @@ export default function ImageLightbox({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
-          className="fixed bottom-16 left-1/2 -translate-x-1/2 text-deep-blue/60 text-xs text-center z-20"
+          className="fixed bottom-16 left-1/2 -translate-x-1/2 text-hypnotic-white/80 text-xs text-center z-30"
         >
-          <div className="bg-hypnotic-white/20 backdrop-blur-sm rounded-lg px-3 py-2">
+          <div className="bg-deep-blue/80 backdrop-blur-md rounded-lg px-3 py-2 shadow-xl">
             <div className="md:hidden">Drag to pan • Pinch to zoom</div>
-            <div className="hidden md:block">Drag or scroll to pan • Ctrl+scroll to zoom • Shift+arrows for precise pan</div>
+            <div className="hidden md:block">Scroll to pan • Ctrl+scroll to zoom • Drag to move</div>
           </div>
         </motion.div>
       </motion.div>

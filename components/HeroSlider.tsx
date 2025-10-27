@@ -2,6 +2,7 @@
 
 import { useRef, useState, useEffect } from 'react'
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
 import ParallaxContainer from './ParallaxContainer'
 const heroImagePaths = [
   '/uploads/2025/02/0421c2GaGv4kq8-scaled.jpg',
@@ -99,14 +100,27 @@ export default function HeroSlider() {
             opacity: textOpacity,
           }}
         >
-          <motion.h1 
+          <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="text-6xl md:text-8xl font-extralight text-hypnotic-white mb-6 leading-tight"
+            className="flex flex-col items-center mb-6"
           >
-            EYETRIP IMAGES
-          </motion.h1>
+            {/* EyeTrip Logo */}
+            <div className="relative w-64 h-32 md:w-96 md:h-48 mb-2">
+              <Image
+                src="/images/eyetripvr-logo3.svg"
+                alt="EyeTrip Logo"
+                fill
+                className="object-contain filter brightness-0 invert drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]"
+                priority
+              />
+            </div>
+            {/* Images Text */}
+            <h1 className="text-5xl md:text-7xl font-extralight text-hypnotic-white tracking-[0.3em]">
+              IMAGES
+            </h1>
+          </motion.div>
           
           <motion.div
             initial={{ opacity: 0, y: 30 }}

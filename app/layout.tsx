@@ -1,9 +1,19 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Zain, Noto_Sans } from 'next/font/google'
 import './globals.css'
 import SmoothScrollProvider from '../components/SmoothScrollProvider'
 
-const inter = Inter({ subsets: ['latin'] })
+const zain = Zain({ 
+  weight: ['200', '300', '400', '700', '800', '900'],
+  subsets: ['latin'],
+  variable: '--font-zain',
+})
+
+const notoSans = Noto_Sans({ 
+  weight: ['400', '500', '600', '700'],
+  subsets: ['latin'],
+  variable: '--font-noto-sans',
+})
 
 export const metadata: Metadata = {
   title: 'Eyetrip Images - Portfolio',
@@ -17,8 +27,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={inter.className}>
-      <body className="antialiased relative">
+    <html lang="en" className={`${zain.variable} ${notoSans.variable}`}>
+      <body className="antialiased relative font-sans">
         <SmoothScrollProvider>
           <div className="relative">
             {children}

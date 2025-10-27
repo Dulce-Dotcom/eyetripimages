@@ -10,8 +10,12 @@
   
   body {
     @apply bg-deep-blue text-hypnotic-white;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: var(--font-noto-sans), system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-zain), system-ui, -apple-system, sans-serif;
   }
 
   * {
@@ -58,5 +62,24 @@
   footer .mt-12.pt-8 {
     opacity: 1 !important;
     transform: translateY(0px) !important;
+  }
+  
+  /* Custom scrollbar for modal */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #0ef 0%, #00ff88 100%);
+    border-radius: 4px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #00ff88 0%, #0ef 100%);
   }
 }

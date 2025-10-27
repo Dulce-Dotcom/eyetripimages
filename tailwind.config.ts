@@ -8,6 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'heading': ['var(--font-zain)', 'system-ui', 'sans-serif'],
+        'sans': ['var(--font-noto-sans)', 'system-ui', 'sans-serif'],
+      },
       colors: {
         'deep-blue': '#01019b',
         'magenta': '#cd00ff',
