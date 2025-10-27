@@ -3,24 +3,25 @@
 import { useRef, useState, useEffect } from 'react'
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import ParallaxContainer from './ParallaxContainer'
-
-const heroImages = [
-  '/eyetripimages/uploads/2025/02/0421c2GaGv4kq8-scaled.jpg',
-  '/eyetripimages/uploads/2025/02/Lava_7444_10_H02_6k_q3-scaled.jpg',
-  '/eyetripimages/uploads/2025/02/Foam_5625_9k_q3-scaled.jpg',
-  '/eyetripimages/uploads/2025/02/Skylight_7836_02_9k_q3-scaled.jpg',
-  '/eyetripimages/uploads/2025/02/Water_7142_03_14k_crop01_q3-scaled.jpg',
-  '/eyetripimages/uploads/2025/02/Vortex_9796_03_q3-scaled.jpg',
-  '/eyetripimages/uploads/2025/02/StoneChromism_6128_4k_q3-scaled.jpg',
-  '/eyetripimages/uploads/2025/02/Mastamho_7444_12_6k_q3-scaled.jpg',
-  '/eyetripimages/uploads/2025/02/WonkaMeadow_6306_04_q3-scaled.jpg',
-  '/eyetripimages/uploads/2025/02/PileusMax_7409_03_5k_q3-scaled.jpg',
-  '/eyetripimages/uploads/2025/02/mycososm_7563_06_6k_q3b-scaled.jpg',
-  '/eyetripimages/uploads/2025/02/DarkAllDay_8314_03_q3-scaled.jpg',
-  '/eyetripimages/uploads/2025/02/Elfrida_sunset_5033_03_q3-scaled.jpg',
-  '/eyetripimages/uploads/2025/02/Cochise_lightning_4272_03-scaled.jpg',
-  '/eyetripimages/uploads/2025/02/Crush_5625_03_q3-scaled.jpg'
+const heroImagePaths = [
+  '/uploads/2025/02/0421c2GaGv4kq8-scaled.jpg',
+  '/uploads/2025/02/Lava_7444_10_H02_6k_q3-scaled.jpg',
+  '/uploads/2025/02/Foam_5625_9k_q3-scaled.jpg',
+  '/uploads/2025/02/Skylight_7836_02_9k_q3-scaled.jpg',
+  '/uploads/2025/02/Water_7142_03_14k_crop01_q3-scaled.jpg',
+  '/uploads/2025/02/Vortex_9796_03_q3-scaled.jpg',
+  '/uploads/2025/02/StoneChromism_6128_4k_q3-scaled.jpg',
+  '/uploads/2025/02/Mastamho_7444_12_6k_q3-scaled.jpg',
+  '/uploads/2025/02/WonkaMeadow_6306_04_q3-scaled.jpg',
+  '/uploads/2025/02/PileusMax_7409_03_5k_q3-scaled.jpg',
+  '/uploads/2025/02/mycososm_7563_06_6k_q3b-scaled.jpg',
+  '/uploads/2025/02/DarkAllDay_8314_03_q3-scaled.jpg',
+  '/uploads/2025/02/Elfrida_sunset_5033_03_q3-scaled.jpg',
+  '/uploads/2025/02/Cochise_lightning_4272_03-scaled.jpg',
+  '/uploads/2025/02/Crush_5625_03_q3-scaled.jpg'
 ]
+
+const heroImages = heroImagePaths
 
 export default function HeroSlider() {
   const containerRef = useRef<HTMLDivElement>(null)

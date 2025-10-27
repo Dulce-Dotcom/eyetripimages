@@ -44,4 +44,19 @@
       transform: translateY(0);
     }
   }
+  
+  /* Force visibility for header and footer in static builds */
+  header .flex.items-center.space-x-2 {
+    opacity: 1 !important;
+  }
+  
+  footer {
+    opacity: 1 !important;
+  }
+  
+  footer .space-y-4,
+  footer .mt-12.pt-8 {
+    opacity: 1 !important;
+    transform: translateY(0px) !important;
+  }
 }

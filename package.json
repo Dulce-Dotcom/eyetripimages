@@ -7,8 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next build",
-    "deploy": "npm run export && touch out/.nojekyll"
+    "deploy": "./deploy.sh"
   },
   "dependencies": {
     "@babylonjs/core": "^6.33.1",

@@ -1,12 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
+  // basePath: '/v2',        // Temporarily disabled for local testing
+  // assetPrefix: '/v2',     // Temporarily disabled for local testing
   trailingSlash: true,
-  basePath: '/eyetripimages',
-  assetPrefix: '/eyetripimages',
   images: {
-    unoptimized: true
-  }
+    unoptimized: true,
+  },
 }
 
 module.exports = nextConfig

@@ -5,12 +5,16 @@ import ImagesSection from '../components/ImagesSection'
 import GigapixelSection from '../components/GigapixelSection'
 import LightningSection from '../components/LightningSection'
 import PhotoSection from '../components/PhotoSection'
+import StickyHeader from '../components/StickyHeader'
+import CopyrightFooter from '../components/CopyrightFooter'
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      {/* Hero - Immersive Introduction */}
-      <HeroSlider />
+    <>
+      <StickyHeader />
+      <main className="min-h-screen">
+        {/* Hero - Immersive Introduction */}
+        <HeroSlider />
       
       {/* Immersive 3D Experience - Neuroaesthetics Core */}
       <Immersive3DSection />
@@ -40,6 +44,8 @@ export default function Home() {
           </p>
         </div>
       </section>
-    </main>
+      </main>
+      <CopyrightFooter />
+    </>
   )
 }

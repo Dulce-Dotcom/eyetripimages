@@ -8,7 +8,7 @@ import { imageMetadata2025, getImageSizes, getBestImageSize, getFlexibleImageUrl
 
 // Convert image metadata to component format with real 2025 images
 const imageData = imageMetadata2025.map((metadata, index) => {
-  // Use the flexible approach for better compatibility
+  // Use the flexible approach for better compatibility with deployment paths
   const sizes = getImageSizes(IMAGES_2025_PATH, metadata.filename);
   
   return {
