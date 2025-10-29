@@ -4,6 +4,8 @@ import { useRef, useState, useEffect } from 'react'
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import ParallaxContainer from './ParallaxContainer'
+import { getAssetPath, getImagePath } from '@/lib/assetPath'
+
 const heroImagePaths = [
   '/uploads/2025/02/0421c2GaGv4kq8-scaled.jpg',
   '/uploads/2025/02/Lava_7444_10_H02_6k_q3-scaled.jpg',
@@ -20,7 +22,7 @@ const heroImagePaths = [
   '/uploads/2025/02/Elfrida_sunset_5033_03_q3-scaled.jpg',
   '/uploads/2025/02/Cochise_lightning_4272_03-scaled.jpg',
   '/uploads/2025/02/Crush_5625_03_q3-scaled.jpg'
-]
+].map(path => getAssetPath(path))
 
 const heroImages = heroImagePaths
 
@@ -109,7 +111,7 @@ export default function HeroSlider() {
             {/* EyeTrip Logo */}
             <div className="relative w-64 h-32 md:w-96 md:h-48 mb-2">
               <Image
-                src="/images/eyetripvr-logo3.svg"
+                src={getImagePath("eyetripvr-logo3.svg")}
                 alt="EyeTrip Logo"
                 fill
                 className="object-contain filter brightness-0 invert drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]"
@@ -131,6 +133,7 @@ export default function HeroSlider() {
             Immersive visual experiences that transform perception and expand consciousness through the intersection of art, technology, and human wonder.
           </motion.div>
           
+          {/* Buttons hidden per user request
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -144,6 +147,7 @@ export default function HeroSlider() {
               WATCH EXPERIENCE
             </button>
           </motion.div>
+          */}
         </motion.div>
       </div>
 

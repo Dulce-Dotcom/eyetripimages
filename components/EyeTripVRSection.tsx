@@ -3,6 +3,7 @@
 import { useRef, useState, useEffect } from 'react'
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from 'framer-motion'
 import Image from 'next/image'
+import { getImagePath, getVideoPath } from '@/lib/assetPath'
 
 export default function EyeTripVRSection() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -98,7 +99,7 @@ export default function EyeTripVRSection() {
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="relative w-96 h-96">
             <Image
-              src="/images/eyetripvr-logo3.svg"
+              src={getImagePath("eyetripvr-logo3.svg")}
               alt="EyeTripVR Logo"
               fill
               className="object-contain filter brightness-0 invert drop-shadow-[0_8px_16px_rgba(0,0,0,0.8)]"
@@ -124,7 +125,7 @@ export default function EyeTripVRSection() {
           playsInline
           className="w-full h-full object-cover opacity-40"
         >
-          <source src="/video/stumpy_rect_16_9_4ktest.mp4" type="video/mp4" />
+          <source src={getVideoPath("stumpy_rect_16_9_4ktest.mp4")} type="video/mp4" />
         </video>
         {/* Dark overlay for better contrast */}
         <div className="absolute inset-0 bg-deep-blue/60" />
@@ -143,7 +144,7 @@ export default function EyeTripVRSection() {
         suppressHydrationWarning
       >
         <Image
-          src="/images/eyetripvr-iconb.svg"
+          src={getImagePath("eyetripvr-iconb.svg")}
           alt="EyeTripVR Icon Blue"
           fill
           className="object-contain drop-shadow-[0_4px_12px_rgba(0,238,255,0.5)]"
@@ -163,7 +164,7 @@ export default function EyeTripVRSection() {
         suppressHydrationWarning
       >
         <Image
-          src="/images/eyetripvr-icong.svg"
+          src={getImagePath("eyetripvr-icong.svg")}
           alt="EyeTripVR Icon Green"
           fill
           className="object-contain drop-shadow-[0_4px_12px_rgba(0,255,136,0.5)]"
@@ -183,7 +184,7 @@ export default function EyeTripVRSection() {
         suppressHydrationWarning
       >
         <Image
-          src="/images/eyetripvr-iconp.svg"
+          src={getImagePath("eyetripvr-iconp.svg")}
           alt="EyeTripVR Icon Purple"
           fill
           className="object-contain drop-shadow-[0_4px_12px_rgba(205,0,255,0.5)]"
@@ -203,7 +204,7 @@ export default function EyeTripVRSection() {
         suppressHydrationWarning
       >
         <Image
-          src="/images/eyetripvr-icony.svg"
+          src={getImagePath("eyetripvr-icony.svg")}
           alt="EyeTripVR Icon Yellow"
           fill
           className="object-contain drop-shadow-[0_4px_12px_rgba(255,234,0,0.5)]"
@@ -221,7 +222,7 @@ export default function EyeTripVRSection() {
       >
         <div className="relative w-64 h-64 md:w-96 md:h-96 lg:w-[32rem] lg:h-[32rem]">
           <Image
-            src="/images/eyetripvr-logo3.svg"
+            src={getImagePath("eyetripvr-logo3.svg")}
             alt="EyeTripVR Logo"
             fill
             className="object-contain filter brightness-0 invert drop-shadow-[0_8px_16px_rgba(0,0,0,0.8)]"

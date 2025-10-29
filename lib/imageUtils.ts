@@ -15,7 +15,11 @@ export interface ImageSizes {
  * Uses common WordPress size patterns for different image types
  */
 export function getImageSizes(basePath: string, filename: string): ImageSizes {
-  const baseUrl = `${basePath}/${filename}`;
+  // Add NEXT_PUBLIC_BASE_PATH prefix to basePath
+  const basePathPrefix = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  const fullBasePath = `${basePathPrefix}${basePath}`;
+  
+  const baseUrl = `${fullBasePath}/${filename}`;
   const nameWithoutExt = filename.replace(/\.[^/.]+$/, "");
   const ext = filename.match(/\.[^/.]+$/)?.[0] || '.jpg';
 
@@ -100,11 +104,11 @@ export function getImageSizes(basePath: string, filename: string): ImageSizes {
   }
 
   return {
-    thumbnail: `${basePath}/${nameWithoutExt}-150x150${ext}`,
-    medium: `${basePath}/${nameWithoutExt}-${mediumSize}${ext}`,
-    large: `${basePath}/${nameWithoutExt}-${largeSize}${ext}`,
+    thumbnail: `${fullBasePath}/${nameWithoutExt}-150x150${ext}`,
+    medium: `${fullBasePath}/${nameWithoutExt}-${mediumSize}${ext}`,
+    large: `${fullBasePath}/${nameWithoutExt}-${largeSize}${ext}`,
     full: baseUrl,
-    scaled: `${basePath}/${nameWithoutExt}-scaled${ext}`
+    scaled: `${fullBasePath}/${nameWithoutExt}-scaled${ext}`
   };
 }
 
@@ -123,8 +127,8 @@ export function getBestImageSize(sizes: ImageSizes, usage: 'thumbnail' | 'previe
       // Try large first, fallback to scaled, then medium, then full
       return sizes.large;
     case 'lightbox':
-      // Prefer scaled for lightbox, fallback to full
-      return sizes.scaled || sizes.full;
+      // Prefer large for lightbox (better compatibility), fallback to scaled, then full
+      return sizes.large || sizes.scaled || sizes.full;
     default:
       return sizes.medium;
   }
@@ -135,21 +139,25 @@ export function getBestImageSize(sizes: ImageSizes, usage: 'thumbnail' | 'previe
  * More flexible approach that tries common size patterns
  */
 export function getFlexibleImageUrl(basePath: string, filename: string, usage: 'thumbnail' | 'preview' | 'background' | 'lightbox'): string {
+  // Add NEXT_PUBLIC_BASE_PATH prefix to basePath
+  const basePathPrefix = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  const fullBasePath = `${basePathPrefix}${basePath}`;
+  
   const nameWithoutExt = filename.replace(/\.[^/.]+$/, "");
   const ext = filename.match(/\.[^/.]+$/)?.[0] || '.jpg';
   
   switch (usage) {
     case 'thumbnail':
-      return `${basePath}/${nameWithoutExt}-150x150${ext}`;
+      return `${fullBasePath}/${nameWithoutExt}-150x150${ext}`;
     case 'preview':
       // Try various common medium sizes, fallback to full
-      return `${basePath}/${nameWithoutExt}-1024x622${ext}`;  // Most common
+      return `${fullBasePath}/${nameWithoutExt}-1024x622${ext}`;  // Most common
     case 'background':
-      return `${basePath}/${nameWithoutExt}-2048x1245${ext}`;  // Most common large
+      return `${fullBasePath}/${nameWithoutExt}-2048x1245${ext}`;  // Most common large
     case 'lightbox':
-      return `${basePath}/${nameWithoutExt}-scaled${ext}`;
+      return `${fullBasePath}/${nameWithoutExt}-scaled${ext}`;
     default:
-      return `${basePath}/${filename}`;
+      return `${fullBasePath}/${filename}`;
   }
 }
 
@@ -306,6 +314,11 @@ export function getRandomImages(category?: keyof typeof eyeTripImages2025, count
 }
 
 /**
- * Base path for 2025 images
+ * Base path for 2025 images with basePath support for deployment
  */
-export const IMAGES_2025_PATH = '/uploads/2025/05';
+export const getImagesBasePath = () => {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  return `${basePath}/uploads/2025/05`;
+};
+
+export const IMAGES_2025_PATH = '/uploads/2025/05'; // Without basePath - components should use getImagesBasePath()

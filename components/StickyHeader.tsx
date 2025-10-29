@@ -6,6 +6,7 @@ import { Menu, X, Camera, Zap, Palette, Layers, Home, Mountain, User, Lightbulb,
 import Image from 'next/image'
 import AboutModal from './AboutModal'
 import PhilosophyModal from './PhilosophyModal'
+import { getImagePath } from '@/lib/assetPath'
 
 const navigationStructure = [
   { id: 'home', label: 'Home', icon: Home, href: '#hero', type: 'link' as const },
@@ -140,7 +141,7 @@ export default function StickyHeader() {
                 onClick={() => scrollToSection('#hero')}
               >
                 <Image
-                  src="/images/eyetripvr-logo3.svg"
+                  src={getImagePath("eyetripvr-logo3.svg")}
                   alt="EyeTrip Logo"
                   fill
                   className="object-contain filter brightness-0 invert drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]"

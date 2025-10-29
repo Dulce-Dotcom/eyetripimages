@@ -3,6 +3,7 @@
 import { useRef, useState, useEffect } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import BabylonScene from './BabylonScene'
+import { getVideoPath } from '@/lib/assetPath'
 
 export default function Immersive3DSection() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -76,7 +77,7 @@ export default function Immersive3DSection() {
           playsInline
           className="w-full h-full object-cover"
         >
-          <source src="/video/stumpy_rect_16_9_4ktest.mp4" type="video/mp4" />
+          <source src={getVideoPath("stumpy_rect_16_9_4ktest.mp4")} type="video/mp4" />
         </video>
       </div>
 
