@@ -81,11 +81,17 @@ export default function ImmersiveSection() {
           </div>
 
           {/* YouTube VR Video Embed Placeholder */}
-          <div className="aspect-video max-w-4xl mx-auto rounded-xl overflow-hidden shadow-2xl bg-deep-blue/50 flex items-center justify-center">
-            <p className="text-hypnotic-white/60 text-center px-4">
-              360° VR Video Experience<br/>
-              <span className="text-sm">(YouTube embed to be configured)</span>
-            </p>
+          <div className="aspect-video max-w-4xl mx-auto rounded-xl overflow-hidden shadow-2xl bg-deep-blue/50">
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/Sqi6uv_6xF4"
+              title="EyeTrip Images Video 5 - 360° VR Experience"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              className="w-full h-full"
+            />
           </div>
         </motion.div>
 

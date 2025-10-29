@@ -1,6 +1,7 @@
 import HeroSlider from '../components/HeroSlider'
 import Immersive3DSection from '../components/Immersive3DSection'
 import ImmersiveSection from '../components/ImmersiveSection'
+import OutrunGrid3DSliver from '../components/OutrunGrid3DSliver'
 import AnimationSection from '../components/AnimationSection'
 import ImagesSection from '../components/ImagesSection'
 import GigapixelSection from '../components/GigapixelSection'
@@ -24,6 +25,9 @@ export default function Home() {
       
       {/* Immersive VR and Installations */}
       <ImmersiveSection />
+      
+      {/* Outrun 3D Grid Sliver */}
+      <OutrunGrid3DSliver />
       
       {/* Portfolio Showcase Sections */}
       <AnimationSection />

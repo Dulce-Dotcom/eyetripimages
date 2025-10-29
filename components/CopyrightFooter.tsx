@@ -46,7 +46,7 @@ export default function CopyrightFooter() {
             <h4 className="text-lg font-semibold text-hypnotic-white">Artist</h4>
             <div className="space-y-2 text-sm">
               <p className="text-hypnotic-white/70">
-                <span className="font-medium text-hypnotic-white">David</span>
+                <span className="font-medium text-hypnotic-white">David Aughenbaugh</span>
                 <br />
                 Visual Artist & Photographer
               </p>
@@ -96,15 +96,8 @@ export default function CopyrightFooter() {
             <div className="flex items-center space-x-2 text-sm text-hypnotic-white/60">
               <Copyright size={16} />
               <span>
-                {currentYear} David - EyeTrip Images. All rights reserved.
+                {currentYear} David Aughenbaugh - EyeTrip Images. All rights reserved.
               </span>
-            </div>
-
-            {/* Technology Credits */}
-            <div className="flex items-center space-x-4 text-xs text-hypnotic-white/50">
-              <span>Built with Next.js & Framer Motion</span>
-              <span>•</span>
-              <span>Hosted on GitHub Pages</span>
             </div>
           </div>
 

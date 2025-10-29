@@ -301,7 +301,7 @@ export default function StickyHeader() {
                   })}
                 </nav>
                 <div className="mt-8 pt-6 border-t border-deep-blue/20">
-                  <p className="text-sm font-sans text-deep-blue/60 text-center">Navigate through David's visual journey</p>
+                  <p className="text-sm font-sans text-deep-blue/60 text-center">Navigate through David Aughenbaugh's visual journey</p>
                 </div>
               </div>
             </motion.div>

@@ -140,12 +140,12 @@ export default function GigapixelSection() {
   return (
     <section 
       ref={containerRef}
-      className="relative min-h-screen py-20 overflow-hidden bg-gradient-to-b from-dark-grey to-magenta"
+      className="relative min-h-screen py-20 overflow-hidden bg-gradient-to-b from-dark-grey to-[#8b0050]"
     >
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <motion.div 
-          style={{ scale: titleScale, opacity: titleOpacity }}
+          style={{ scale: titleScale }}
           className="text-center mb-20"
           suppressHydrationWarning
         >
@@ -161,7 +161,7 @@ export default function GigapixelSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl md:text-2xl text-hypnotic-white/90 mb-4"
+            className="text-xl md:text-2xl text-white font-semibold mb-4"
           >
             Stitched Photography
           </motion.p>
@@ -169,7 +169,7 @@ export default function GigapixelSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg md:text-xl text-hypnotic-white/80 max-w-4xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl text-white max-w-4xl mx-auto leading-relaxed"
           >
             These images are made from many individual frames, combined to create one large image. 
             As a result, they can contain far more detail than a normal photograph. Some are over a gigapixel in size. 

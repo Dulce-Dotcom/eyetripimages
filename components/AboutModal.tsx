@@ -3,6 +3,8 @@
 import { useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Instagram, Facebook, Youtube } from 'lucide-react'
+import Image from 'next/image'
+import { getImagePath } from '@/lib/assetPath'
 
 interface AboutModalProps {
   isOpen: boolean
@@ -71,6 +73,23 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
 
             {/* Scrollable Content */}
             <div className="overflow-y-auto flex-1 p-8 md:p-12 custom-scrollbar" style={{ scrollBehavior: 'smooth' }}>
+              {/* Header Image */}
+              <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.05 }}
+                className="text-center mb-8"
+              >
+                <div className="relative w-full h-64 md:h-80 mx-auto rounded-xl overflow-hidden shadow-lg">
+                  <Image
+                    src={getImagePath('about_goldenGateCrop2.jpg')}
+                    alt="David Aughenbaugh at Golden Gate Bridge"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </motion.div>
+
               {/* Header */}
               <motion.div
                 initial={{ y: 20, opacity: 0 }}
@@ -97,6 +116,17 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
                 className="mb-12 bg-electric-blue/5 rounded-xl p-8"
               >
                 <h2 className="text-3xl font-bold text-deep-blue mb-4">Flow State</h2>
+                
+                {/* Mertropolis Image */}
+                <div className="relative w-full h-64 md:h-80 mb-6 rounded-lg overflow-hidden shadow-lg">
+                  <Image
+                    src={getImagePath('about_mertropolis_01sq-1024x1024.jpg')}
+                    alt="Mertropolis - Flow State Art"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                
                 <p className="text-deep-blue/80 leading-relaxed mb-4">
                   Exponential functions in math can make your brain hurt, but in art they can be transformative. I am interested in human consciousness and I create animations that use exponential growth to affect the viewer. The animations themselves are abstract, colorful and feature an infinite zoom experience, with a seemingly impossible amount of detail.
                 </p>
@@ -113,6 +143,17 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
                 className="mb-12 bg-neon-green/5 rounded-xl p-8"
               >
                 <h2 className="text-3xl font-bold text-deep-blue mb-4">One Step…Removed</h2>
+                
+                {/* Nonsense Image */}
+                <div className="relative w-full h-64 md:h-80 mb-6 rounded-lg overflow-hidden shadow-lg">
+                  <Image
+                    src={getImagePath('about_nonsense_01c1-883x1024.jpg')}
+                    alt="Alice's Brand of Nonsense"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                
                 <p className="text-deep-blue/80 leading-relaxed mb-4">
                   Fractal mathematics seems to be integral to nature. It can be found everywhere, in the unfolding curve of a fern or the veins in a leaf, branching of rivers or the texture of rocks. It appears to be underneath these shapes, to inspire them, but is not directly expressed. It is interpreted, randomized, one level removed.
                 </p>
@@ -138,12 +179,34 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
                 <p className="text-deep-blue/80 leading-relaxed mb-4">
                   This work builds upon my previous work as an animator and visual effects artist for film, television and games, where my achievements include an Oscar in 2019 for "First Man" as part of the visual effects team, and working on the first VR film to be nominated for an Oscar with "Pearl" in 2017. Operating near the cutting edge of technology, my experience includes computer animation for TV in the 1980's, and streaming video on the web in the 1990's. I was an early adopter utilizing AI as a tool in my artistic practice beginning in 2021.
                 </p>
+                
+                {/* Family Vacation Photo */}
+                <div className="relative w-full h-64 md:h-96 mb-6 rounded-lg overflow-hidden shadow-lg">
+                  <Image
+                    src={getImagePath('about_MG_2698_02-scaled.jpg')}
+                    alt="Aughenbaugh family ready for vacation"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                
                 <p className="text-deep-blue/80 leading-relaxed mb-4">
                   I was raised by a photographer. My artistic vision developed early, being raised in a home where every vacation centered on photography, and slide-show critique sessions were a daily part of life.
                 </p>
-                <p className="text-deep-blue/80 leading-relaxed mb-4">
+                <p className="text-deep-blue/80 leading-relaxed mb-6">
                   Later I became interested in working with extremely large, stitched photographic images. By stitching together many source images, I could create a single photograph large enough to be printed the size of a wall, and still have full detail. With an image like that, viewers are encouraged to approach the image and get lost in the detail. It's that 'getting lost' part that attracted me.
                 </p>
+                
+                {/* Uplift Image */}
+                <div className="relative w-full h-64 md:h-80 mb-6 rounded-lg overflow-hidden shadow-lg">
+                  <Image
+                    src={getImagePath('about_Uplift.jpg')}
+                    alt="Uplift - Abstract Art"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                
                 <p className="text-deep-blue/80 leading-relaxed">
                   That work evolved, became abstract, and somehow with literal meaning stripped away, became more potent, and it has grown from there. When I started animating these images, my hypnotherapy training allowed me to see the effect it was having.
                 </p>
@@ -157,6 +220,27 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
                 className="mb-12 bg-electric-blue/5 rounded-xl p-8"
               >
                 <h2 className="text-3xl font-bold text-deep-blue mb-4">Experience</h2>
+                
+                {/* Two Images Side by Side */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                  <div className="relative w-full h-96 rounded-lg overflow-hidden shadow-lg">
+                    <Image
+                      src={getImagePath('about_AweWithBaby-719x1024.jpg')}
+                      alt="Awe with Baby"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                  <div className="relative w-full h-96 rounded-lg overflow-hidden shadow-lg">
+                    <Image
+                      src={getImagePath('about_PointLookc1flip_01-804x1024.jpg')}
+                      alt="David Aughenbaugh"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
+                
                 <p className="text-deep-blue/80 leading-relaxed mb-4">
                   In addition to giving people an enjoyable experience of art, I seek to help people experience a flow state. We are all familiar with flow states, but they can be elusive. My work encourages people to pay attention to their mental states, and facilitates present-moment awareness.
                 </p>

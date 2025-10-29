@@ -3,6 +3,8 @@
 import { useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X } from 'lucide-react'
+import Image from 'next/image'
+import { getImagePath } from '@/lib/assetPath'
 
 interface PhilosophyModalProps {
   isOpen: boolean
@@ -16,6 +18,7 @@ const modalContent = {
     sections: [
       {
         title: 'Wonder, Curiosity and Awe',
+        image: 'wonder_curiosity_awe.jpg',
         content: [
           'Following my own curiosity as an artist I discovered an area of work which overlapped another fascination: consciousness and mental states.',
           'It feels like a discovery as much as a creation. Enormous and rich with possibilities, somehow it feels important, like it wants to exist. When I start exploring, every answer raises six more questions.'
@@ -48,12 +51,14 @@ const modalContent = {
       {
         title: 'Art and its power to transform our lives',
         subtitle: 'Don\'t just take my word for it',
+        image: 'power_mycocosm2.jpg',
         content: [
           'There are currently few people working directly in this space, but the field is growing. Neuroaesthetics is being recognized as a powerful area of creativity for a vanguard of artists and researchers around the world'
         ]
       },
       {
         title: 'The crossroads of science, the arts, and technology',
+        image: 'power_birdogadillosaurus.jpg',
         content: [
           'Your Brain on Art • NEW YORK TIMES BESTSELLER • A life-altering journey through the science of neuroaesthetics, which offers proof for how our brains and bodies transform when we participate in the arts—and how this knowledge can improve our health, enable us to flourish, and build stronger communities.',
           'I contacted the authors, Susan Magsamen and Ivy Ross and told them about my work. They seemed impressed with the work, and are currently looking into who they could put me in touch with, including researchers at places like UCSF and UC Berkeley.',
@@ -67,6 +72,7 @@ const modalContent = {
     sections: [
       {
         title: 'Now That You See It',
+        image: 'wavehands_orig.jpg',
         content: [
           'I made a drawing in charcoal of the famous wave scene by Hokusai. Everyone has seen some version of this image. As I was looking at my drawing, I saw something that made me laugh. All the little curly wave bits look like Charlie Brown\'s fingers!',
           'Compare my drawing with the Peanuts characters below. See it?',
@@ -174,6 +180,16 @@ export default function PhilosophyModal({ isOpen, onClose, title, content }: Phi
                     <h3 className="text-xl text-deep-blue/80 mb-4 italic">
                       {section.subtitle}
                     </h3>
+                  )}
+                  {'image' in section && section.image && (
+                    <div className="relative w-full h-96 mb-6 rounded-lg overflow-hidden shadow-lg">
+                      <Image
+                        src={getImagePath(section.image)}
+                        alt={section.title}
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
                   )}
                   {section.content.map((paragraph, pIdx) => (
                     <p key={pIdx} className="text-deep-blue/80 leading-relaxed mb-4">

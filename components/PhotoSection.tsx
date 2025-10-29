@@ -3,9 +3,10 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Camera, Eye, Palette } from 'lucide-react'
+import Image from 'next/image'
 import ImageLightbox from './ImageLightbox'
 import ParallaxContainer from './ParallaxContainer'
-import { getAssetPath } from '@/lib/assetPath'
+import { getAssetPath, getImagePath } from '@/lib/assetPath'
 
 
 const photographyImagesData = [
@@ -220,7 +221,7 @@ export default function PhotoSection() {
               layout
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 0.3, delay: index * 0.05 }}
               className="group relative cursor-pointer"
               onClick={() => openLightbox(index)}
             >
@@ -294,7 +295,17 @@ export default function PhotoSection() {
         >
           <div className="bg-hypnotic-white/30 backdrop-blur-sm rounded-2xl p-12 border border-deep-blue/10">
             <div className="flex justify-center mb-6">
-              <Palette className="w-10 h-10 text-magenta" />
+              <div className="relative w-16 h-16">
+                <Image
+                  src={getImagePath('eyetripvr-icon.svg')}
+                  alt="The Abstract Eye"
+                  width={64}
+                  height={64}
+                  style={{ 
+                    filter: 'brightness(0) saturate(100%) invert(23%) sepia(100%) saturate(6820%) hue-rotate(288deg) brightness(103%) contrast(107%)'
+                  }}
+                />
+              </div>
             </div>
             <h3 className="text-3xl font-semibold text-magenta mb-8">
               The Abstract Eye

@@ -23,7 +23,7 @@ const animationVideos = [
     id: '4NkV3ScBIkE',
     src: 'https://www.youtube.com/watch?v=4NkV3ScBIkE',
     title: 'EyeTrip Images Video 1',
-    description: 'David\'s latest animation work showcasing immersive digital art experiences.',
+    description: 'David Aughenbaugh\'s latest animation work showcasing immersive digital art experiences.',
     thumbnail: getYouTubeThumbnail('4NkV3ScBIkE'),
     isYouTube: true,
     isVR: false

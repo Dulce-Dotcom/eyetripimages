@@ -65,6 +65,7 @@ export default function LightningSection() {
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [mounted, setMounted] = useState(false)
+  const [isHovering, setIsHovering] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
   
   // Ensure component is mounted on client side
@@ -132,7 +133,7 @@ export default function LightningSection() {
   return (
     <section 
       ref={containerRef}
-      className="relative min-h-screen overflow-hidden bg-hypnotic-white"
+      className="relative min-h-screen overflow-hidden bg-hypnotic-white pt-20"
     >
       {/* Simplified Static Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-hypnotic-white via-deep-blue/10 to-hypnotic-white" />
@@ -164,7 +165,70 @@ export default function LightningSection() {
               transition={{ duration: 1 }}
               className="mb-8"
             >
-              <Zap className="w-16 h-16 mx-auto text-magenta mb-6" />
+              <motion.div 
+                className="relative inline-block"
+                onHoverStart={() => setIsHovering(true)}
+                onHoverEnd={() => setIsHovering(false)}
+              >
+                {/* Lightning Sparks - appear on hover */}
+                <AnimatePresence>
+                  {isHovering && (
+                    <>
+                      {[...Array(8)].map((_, i) => (
+                        <motion.div
+                          key={i}
+                          className="absolute"
+                          style={{
+                            left: '50%',
+                            top: '50%',
+                            width: '6px',
+                            height: `${Math.random() * 50 + 40}px`,
+                            background: 'linear-gradient(to bottom, #ffffff, transparent)',
+                            boxShadow: '0 0 15px #ffb3d9, 0 0 30px #ff99cc, 0 0 45px #ff66b2',
+                            transformOrigin: 'top center',
+                            rotate: `${(360 / 8) * i}deg`,
+                          }}
+                          initial={{ scale: 0, opacity: 0 }}
+                          animate={{ 
+                            scale: [0, 1, 0],
+                            opacity: [0, 1, 0],
+                            y: [0, -30, -60]
+                          }}
+                          exit={{ scale: 0, opacity: 0 }}
+                          transition={{
+                            duration: 0.6,
+                            repeat: Infinity,
+                            repeatDelay: 0.2,
+                            delay: i * 0.1
+                          }}
+                        />
+                      ))}
+                    </>
+                  )}
+                </AnimatePresence>
+                
+                {/* Main Lightning Bolt Icon */}
+                <motion.div
+                  animate={isHovering ? {
+                    rotate: [0, -5, 5, -5, 5, 0],
+                    scale: [1, 1.1, 1, 1.1, 1],
+                  } : {}}
+                  transition={{
+                    duration: 0.5,
+                    repeat: isHovering ? Infinity : 0,
+                    repeatDelay: 0.1
+                  }}
+                >
+                  <Zap 
+                    className="w-16 h-16 mx-auto mb-6 cursor-pointer relative z-10"
+                    style={{
+                      color: '#ff00ff',
+                      filter: isHovering ? 'drop-shadow(0 0 10px #ff00ff) drop-shadow(0 0 20px #ff00ff) drop-shadow(0 0 30px #ff00ff) brightness(1.5) drop-shadow(0 0 1px white) drop-shadow(0 0 1px white)' : 'none',
+                      transition: 'filter 0.3s ease'
+                    }}
+                  />
+                </motion.div>
+              </motion.div>
               <h2 className="text-6xl md:text-8xl font-bold mb-6">
                 <span 
                   className="bg-gradient-to-r from-magenta via-hypnotic-white to-deep-blue bg-clip-text text-transparent"
