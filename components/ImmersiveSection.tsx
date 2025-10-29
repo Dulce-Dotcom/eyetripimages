@@ -1,11 +1,14 @@
 'use client'
 
-import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { Eye, Globe, Monitor } from 'lucide-react'
+import { useRef, useState } from 'react'
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
+import { Eye, Globe, Monitor, X, Play } from 'lucide-react'
+import Image from 'next/image'
+import { getImagePath } from '@/lib/assetPath'
 
 export default function ImmersiveSection() {
   const containerRef = useRef<HTMLDivElement>(null)
+  const [videoLightbox, setVideoLightbox] = useState<string | null>(null)
   
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -123,46 +126,84 @@ export default function ImmersiveSection() {
             <motion.div
               whileHover={{ scale: 1.02, y: -5 }}
               transition={{ type: 'spring', stiffness: 300 }}
-              className="bg-hypnotic-white/5 backdrop-blur-sm rounded-2xl p-8 border border-hypnotic-white/10 hover:border-electric-blue/30 transition-all duration-300"
+              className="bg-hypnotic-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-hypnotic-white/10 hover:border-electric-blue/30 transition-all duration-300 cursor-pointer"
+              onClick={() => setVideoLightbox('HP7PfdBBQbs')}
             >
-              <div className="flex items-center mb-4">
-                <Monitor size={24} className="text-electric-blue mr-3" />
-                <h4 className="text-xl font-bold text-hypnotic-white">
-                  San Francisco, California
-                </h4>
+              {/* Image */}
+              <div className="relative w-full h-64 bg-deep-blue/50 group">
+                <Image
+                  src={getImagePath('GAshow2_thumb5.jpg')}
+                  alt="San Francisco Installation"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
+                  <div className="bg-electric-blue/80 group-hover:bg-electric-blue rounded-full p-4 group-hover:scale-110 transition-all duration-300">
+                    <Play size={32} className="text-white" fill="white" />
+                  </div>
+                </div>
               </div>
-              <p className="text-hypnotic-white/80 mb-4">
-                360º wrap-around projection screen installation
-              </p>
-              <p className="text-hypnotic-white/70 text-sm mb-2">
-                This was a temporary installation, created during my residency with the Gray Area Arts and Technology Incubator Program in 2023.
-              </p>
-              <p className="text-hypnotic-white/60 text-sm italic">
-                Created as a proof-of-concept for the use of custom projection screens for this purpose.
-              </p>
+              
+              {/* Content */}
+              <div className="p-8">
+                <div className="flex items-center mb-4">
+                  <Monitor size={24} className="text-electric-blue mr-3" />
+                  <h4 className="text-xl font-bold text-hypnotic-white">
+                    San Francisco, California
+                  </h4>
+                </div>
+                <p className="text-hypnotic-white/80 mb-4">
+                  360º wrap-around projection screen installation
+                </p>
+                <p className="text-hypnotic-white/70 text-sm mb-2">
+                  This was a temporary installation, created during my residency with the Gray Area Arts and Technology Incubator Program in 2023.
+                </p>
+                <p className="text-hypnotic-white/60 text-sm italic">
+                  Created as a proof-of-concept for the use of custom projection screens for this purpose.
+                </p>
+              </div>
             </motion.div>
 
             {/* Escondido Installation */}
             <motion.div
               whileHover={{ scale: 1.02, y: -5 }}
               transition={{ type: 'spring', stiffness: 300 }}
-              className="bg-hypnotic-white/5 backdrop-blur-sm rounded-2xl p-8 border border-hypnotic-white/10 hover:border-neon-green/30 transition-all duration-300"
+              className="bg-hypnotic-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-hypnotic-white/10 hover:border-neon-green/30 transition-all duration-300 cursor-pointer"
+              onClick={() => setVideoLightbox('sgsqatF1MvE')}
             >
-              <div className="flex items-center mb-4">
-                <Monitor size={24} className="text-neon-green mr-3" />
-                <h4 className="text-xl font-bold text-hypnotic-white">
-                  Escondido, California
-                </h4>
+              {/* Image */}
+              <div className="relative w-full h-64 bg-deep-blue/50 group">
+                <Image
+                  src={getImagePath('IMG_6905_02hi.jpg')}
+                  alt="Escondido Installation"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
+                  <div className="bg-neon-green/80 group-hover:bg-neon-green rounded-full p-4 group-hover:scale-110 transition-all duration-300">
+                    <Play size={32} className="text-white" fill="white" />
+                  </div>
+                </div>
               </div>
-              <p className="text-hypnotic-white/80 mb-4">
-                360º wrap-around projection screen installation
-              </p>
-              <p className="text-hypnotic-white/70 text-sm mb-2">
-                This is a permanent installation, funded through a major grant from the Escondido Community Foundation. It is in a public space in the North County Mall, allowing people to discover it spontaneously.
-              </p>
-              <p className="text-hypnotic-white/60 text-sm italic">
-                Viewers can spend as much time as they choose experiencing the exhibit.
-              </p>
+              
+              {/* Content */}
+              <div className="p-8">
+                <div className="flex items-center mb-4">
+                  <Monitor size={24} className="text-neon-green mr-3" />
+                  <h4 className="text-xl font-bold text-hypnotic-white">
+                    Escondido, California
+                  </h4>
+                </div>
+                <p className="text-hypnotic-white/80 mb-4">
+                  360º wrap-around projection screen installation
+                </p>
+                <p className="text-hypnotic-white/70 text-sm mb-2">
+                  This is a permanent installation, funded through a major grant from the Escondido Community Foundation. It is in a public space in the North County Mall, allowing people to discover it spontaneously.
+                </p>
+                <p className="text-hypnotic-white/60 text-sm italic">
+                  Viewers can spend as much time as they choose experiencing the exhibit.
+                </p>
+              </div>
             </motion.div>
           </div>
 
@@ -209,6 +250,48 @@ export default function ImmersiveSection() {
           </div>
         </motion.div>
       </div>
+
+      {/* Video Lightbox Modal */}
+      <AnimatePresence>
+        {videoLightbox && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
+            onClick={() => setVideoLightbox(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: 'spring', damping: 25 }}
+              className="relative w-full max-w-6xl aspect-video bg-black rounded-lg overflow-hidden shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setVideoLightbox(null)}
+                className="absolute top-4 right-4 z-10 p-2 bg-black/50 hover:bg-black/70 rounded-full text-white transition-all duration-300"
+              >
+                <X size={24} />
+              </button>
+
+              {/* YouTube Embed */}
+              <iframe
+                width="100%"
+                height="100%"
+                src={`https://www.youtube.com/embed/${videoLightbox}?autoplay=1`}
+                title="Installation Video"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="w-full h-full"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   )
 }

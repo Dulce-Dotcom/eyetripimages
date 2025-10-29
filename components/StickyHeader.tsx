@@ -2,10 +2,11 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Camera, Zap, Palette, Layers, Home, Mountain, User, Lightbulb, ChevronDown, Sparkles, Eye, ExternalLink } from 'lucide-react'
+import { Menu, X, Camera, Zap, Palette, Layers, Home, Mountain, User, Lightbulb, ChevronDown, Sparkles, Eye, ExternalLink, Newspaper } from 'lucide-react'
 import Image from 'next/image'
 import AboutModal from './AboutModal'
 import PhilosophyModal from './PhilosophyModal'
+import PressModal from './PressModal'
 import { getImagePath } from '@/lib/assetPath'
 
 const navigationStructure = [
@@ -37,12 +38,14 @@ const navigationStructure = [
     ]
   },
   { id: 'about', label: 'About', icon: User, type: 'modal' as const },
+  { id: 'press', label: 'Press', icon: Newspaper, type: 'modal' as const },
   { id: 'eyetripvr', label: 'EyeTripVR', icon: ExternalLink, href: 'https://eyetripvr.com', type: 'external' as const }
 ]
 
 export default function StickyHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isAboutOpen, setIsAboutOpen] = useState(false)
+  const [isPressOpen, setIsPressOpen] = useState(false)
   const [philosophyModal, setPhilosophyModal] = useState<'wonder' | 'power' | 'seeit' | null>(null)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const [activeSection, setActiveSection] = useState('hero')
@@ -111,7 +114,11 @@ export default function StickyHeader() {
 
   const handleNavClick = (item: any) => {
     if (item.type === 'link') scrollToSection(item.href)
-    else if (item.type === 'modal') { setIsAboutOpen(true); setIsMenuOpen(false) }
+    else if (item.type === 'modal') {
+      if (item.id === 'about') setIsAboutOpen(true)
+      else if (item.id === 'press') setIsPressOpen(true)
+      setIsMenuOpen(false)
+    }
     else if (item.type === 'external') { window.open(item.href, '_blank'); setIsMenuOpen(false) }
     else if (item.type === 'dropdown' && item.href) scrollToSection(item.href)
   }
@@ -310,6 +317,7 @@ export default function StickyHeader() {
       </AnimatePresence>
       
       <AboutModal isOpen={isAboutOpen} onClose={() => setIsAboutOpen(false)} />
+      <PressModal isOpen={isPressOpen} onClose={() => setIsPressOpen(false)} />
       <PhilosophyModal isOpen={philosophyModal === 'wonder'} onClose={() => setPhilosophyModal(null)} title="Wonder, Curiosity and Awe" content="wonder" />
       <PhilosophyModal isOpen={philosophyModal === 'power'} onClose={() => setPhilosophyModal(null)} title="Power to Transform" content="power" />
       <PhilosophyModal isOpen={philosophyModal === 'seeit'} onClose={() => setPhilosophyModal(null)} title="Now That You See It" content="seeit" />

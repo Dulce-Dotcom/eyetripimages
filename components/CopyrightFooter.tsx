@@ -31,7 +31,7 @@ export default function CopyrightFooter() {
             </div>
             <p className="text-hypnotic-white/70 text-sm leading-relaxed">
               Exploring the intersection of art, technology, and human perception through 
-              immersive visual experiences and cutting-edge photography.
+              immersive visual experiences and cutting-edge presentations.
             </p>
           </motion.div>
 

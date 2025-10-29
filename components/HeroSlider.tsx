@@ -130,7 +130,7 @@ export default function HeroSlider() {
             transition={{ duration: 0.8, delay: 1.2 }}
             className="text-xl md:text-2xl font-light text-hypnotic-white/80 mb-8 max-w-2xl mx-auto leading-relaxed"
           >
-            Immersive visual experiences that transform perception and expand consciousness through the intersection of art, technology, and human wonder.
+            Immersive visual experiences that transform perception and expand consciousness through the intersection of art, technology, and human wonder. Crafted by photographer and visual artist David Aughenbaugh, whose technical mastery and innovative approach to image-making pushes the boundaries of digital photography—capturing extraordinary moments in nature and transforming them into transcendent visual journeys.
           </motion.div>
           
           {/* Buttons hidden per user request
