@@ -1,7 +1,9 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Camera, Globe, Mail, Copyright } from 'lucide-react'
+import { Globe, Mail, Copyright } from 'lucide-react'
+import Image from 'next/image'
+import { getImagePath } from '@/lib/assetPath'
 
 export default function CopyrightFooter() {
   const currentYear = new Date().getFullYear()
@@ -25,10 +27,18 @@ export default function CopyrightFooter() {
             className="space-y-4"
             style={{ opacity: 1, transform: 'translateY(0px)' }} // Fallback for static builds
           >
-            <div className="flex items-center space-x-2">
-              <Camera className="text-electric-blue" size={24} />
-              <h3 className="text-2xl font-bold gradient-text">EyeTrip Images</h3>
-            </div>
+            <motion.div 
+              whileHover={{ scale: 1.05 }} 
+              className="relative h-8 w-24"
+            >
+              <Image
+                src={getImagePath("eyetripvr-logo3.svg")}
+                alt="EyeTrip Logo"
+                fill
+                className="object-contain filter brightness-0 invert drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]"
+                priority
+              />
+            </motion.div>
             <p className="text-hypnotic-white/70 text-sm leading-relaxed">
               Exploring the intersection of art, technology, and human perception through 
               immersive visual experiences and cutting-edge presentations.
