@@ -1,16 +1,10 @@
 import type { Metadata } from 'next'
-import { Zain, Noto_Sans } from 'next/font/google'
+import { Noto_Sans } from 'next/font/google'
 import './globals.css'
 import SmoothScrollProvider from '../components/SmoothScrollProvider'
 
-const zain = Zain({ 
-  weight: ['200', '300', '400', '700', '800', '900'],
-  subsets: ['latin'],
-  variable: '--font-zain',
-})
-
 const notoSans = Noto_Sans({ 
-  weight: ['400', '500', '600', '700'],
+  weight: ['200', '300', '400', '500', '600', '700', '800', '900'],
   subsets: ['latin'],
   variable: '--font-noto-sans',
 })
@@ -27,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${zain.variable} ${notoSans.variable}`}>
+    <html lang="en" className={notoSans.variable}>
       <body className="antialiased relative font-sans">
         <SmoothScrollProvider>
           <div className="relative">

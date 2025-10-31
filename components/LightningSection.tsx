@@ -4,6 +4,7 @@ import { useRef, useState, useEffect } from 'react'
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { Zap, Camera, Calendar, MapPin } from 'lucide-react'
 import ImageLightbox from './ImageLightbox'
+import ParallaxContainer from './ParallaxContainer'
 import { getAssetPath } from '@/lib/assetPath'
 
 
@@ -132,6 +133,7 @@ export default function LightningSection() {
   
   return (
     <section 
+      id="lightning"
       ref={containerRef}
       className="relative min-h-screen overflow-hidden bg-hypnotic-white pt-20"
     >
@@ -269,10 +271,13 @@ export default function LightningSection() {
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {lightningImages.map((image, index) => (
-                <div
+                <motion.div
                   key={image.id}
-                  className="group relative cursor-pointer opacity-0 animate-fade-in"
-                  style={{ animationDelay: `${index * 100}ms` }}
+                  layout
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="group cursor-pointer"
                   onClick={() => openLightbox(index)}
                 >
                   {/* Simplified Hover Effect */}
@@ -315,7 +320,7 @@ export default function LightningSection() {
                       </p>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>

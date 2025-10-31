@@ -84,6 +84,7 @@ export default function ImagesSection() {
   
   return (
     <section 
+      id="images"
       ref={containerRef}
       className="relative min-h-screen py-20 bg-gradient-to-b from-deep-blue to-dark-grey"
     >

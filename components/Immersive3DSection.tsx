@@ -17,16 +17,14 @@ export default function Immersive3DSection() {
   // Track scroll progress specifically for this section
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start end", "end start"]
+    offset: ["start end", "end start"],
   })
   
   // Transform scroll progress to usable values - only after mounted
+  // Reduce number of calculations for better performance
   const rotationProgress = useTransform(scrollYProgress, [0, 1], [0, Math.PI * 2])
   const textOpacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [1, 1, 0.3, 0])
-  const textY = useTransform(scrollYProgress, [0, 1], [0, -100])
   const sceneOpacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.3, 0.7, 1, 0.8])
-  const particleOpacity = useTransform(scrollYProgress, [0.2, 0.8], [0, 1])
-  const progressOpacity = useTransform(scrollYProgress, [0, 0.1, 0.9, 1], [0, 1, 1, 0])
   
   // Don't render scroll-dependent animations until mounted
   if (!mounted) {
@@ -75,7 +73,9 @@ export default function Immersive3DSection() {
           muted
           loop
           playsInline
+          preload="metadata"
           className="w-full h-full object-cover"
+          style={{ willChange: 'auto' }}
         >
           <source src={getVideoPath("stumpy_rect_16_9_4ktest.mp4")} type="video/mp4" />
         </video>
@@ -93,8 +93,7 @@ export default function Immersive3DSection() {
       {/* Sticky Text Overlay */}
       <motion.div 
         style={{ 
-          opacity: textOpacity,
-          y: textY
+          opacity: textOpacity
         }}
         className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none"
         suppressHydrationWarning
@@ -134,7 +133,7 @@ export default function Immersive3DSection() {
       
       {/* Interactive Particles Effect */}
       <motion.div 
-        style={{ opacity: particleOpacity }}
+        style={{ opacity: sceneOpacity }}
         suppressHydrationWarning
         className="absolute inset-0 z-15 pointer-events-none"
       >
@@ -170,7 +169,7 @@ export default function Immersive3DSection() {
       <motion.div 
         style={{ 
           scaleX: scrollYProgress,
-          opacity: progressOpacity
+          opacity: textOpacity
         }}
         className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-magenta to-hypnotic-white origin-left z-30"
       />

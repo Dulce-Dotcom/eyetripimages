@@ -143,6 +143,7 @@ export default function AnimationSection() {
   
   return (
     <section 
+      id="animation"
       ref={containerRef}
       className="relative min-h-screen py-20 overflow-hidden bg-gradient-to-b from-deep-blue to-hypnotic-white"
     >

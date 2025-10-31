@@ -139,6 +139,7 @@ export default function GigapixelSection() {
   
   return (
     <section 
+      id="gigapixel"
       ref={containerRef}
       className="relative min-h-screen py-20 overflow-hidden bg-gradient-to-b from-dark-grey to-[#8b0050]"
     >
@@ -180,10 +181,13 @@ export default function GigapixelSection() {
         {/* Gigapixel Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
           {gigapixelImages.map((image, index) => (
-            <div
+            <motion.div
               key={image.id}
-              className="group relative cursor-pointer opacity-0 animate-fade-in"
-              style={{ animationDelay: `${index * 200}ms` }}
+              layout
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="group cursor-pointer"
               onMouseEnter={() => setHoveredImage(image.id)}
               onMouseLeave={() => setHoveredImage(null)}
               onMouseMove={(e) => handleMouseMove(e, image.id)}
@@ -259,7 +263,7 @@ export default function GigapixelSection() {
                   <span className="text-hypnotic-white text-sm">Explore Detail</span>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 

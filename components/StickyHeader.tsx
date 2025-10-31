@@ -10,11 +10,11 @@ import PressModal from './PressModal'
 import { getImagePath } from '@/lib/assetPath'
 
 const navigationStructure = [
-  { id: 'home', label: 'Home', icon: Home, href: '#hero', type: 'link' as const },
   {
     id: 'main',
     label: 'Main',
     icon: Layers,
+    href: '#',
     type: 'dropdown' as const,
     items: [
       { id: 'immersive', label: 'Immersive', icon: Mountain, href: '#immersive' },
@@ -104,11 +104,17 @@ export default function StickyHeader() {
   }, [activeDropdown])
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    if (href === '#') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
       setIsMenuOpen(false)
       setActiveDropdown(null)
+    } else {
+      const element = document.querySelector(href)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        setIsMenuOpen(false)
+        setActiveDropdown(null)
+      }
     }
   }
 
@@ -120,7 +126,6 @@ export default function StickyHeader() {
       setIsMenuOpen(false)
     }
     else if (item.type === 'external') { window.open(item.href, '_blank'); setIsMenuOpen(false) }
-    else if (item.type === 'dropdown' && item.href) scrollToSection(item.href)
   }
 
   const handleSubItemClick = (subItem: any) => {
@@ -145,7 +150,7 @@ export default function StickyHeader() {
               <motion.div 
                 whileHover={{ scale: 1.05 }} 
                 className="cursor-pointer relative h-8 w-24"
-                onClick={() => scrollToSection('#hero')}
+                onClick={() => scrollToSection('#')}
               >
                 <Image
                   src={getImagePath("eyetripvr-logo3.svg")}
@@ -163,20 +168,31 @@ export default function StickyHeader() {
                 if (item.type === 'dropdown') {
                   return (
                     <div key={item.id} className="relative">
-                      <motion.button
+                      <motion.div
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        onClick={(e) => {
-                          e.stopPropagation()
-                          if (item.href) scrollToSection(item.href)
-                          setActiveDropdown(activeDropdown === item.id ? null : item.id)
-                        }}
                         className="flex items-center space-x-1 px-3 py-2 rounded-lg text-sm font-sans font-medium transition-all duration-200 text-hypnotic-white/70 hover:text-hypnotic-white hover:bg-hypnotic-white/10"
                       >
-                        <Icon size={16} />
-                        <span>{item.label}</span>
-                        <ChevronDown size={14} className={`transition-transform ${activeDropdown === item.id ? 'rotate-180' : ''}`} />
-                      </motion.button>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            if (item.href) scrollToSection(item.href)
+                          }}
+                          className="flex items-center space-x-1"
+                        >
+                          <Icon size={16} />
+                          <span>{item.label}</span>
+                        </button>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            setActiveDropdown(activeDropdown === item.id ? null : item.id)
+                          }}
+                          className="p-1"
+                        >
+                          <ChevronDown size={14} className={`transition-transform ${activeDropdown === item.id ? 'rotate-180' : ''}`} />
+                        </button>
+                      </motion.div>
                       <AnimatePresence>
                         {activeDropdown === item.id && (
                           <motion.div
@@ -251,20 +267,35 @@ export default function StickyHeader() {
                     if (item.type === 'dropdown') {
                       return (
                         <div key={item.id} className="space-y-1">
-                          <motion.button
+                          <motion.div
                             whileHover={{ x: 4 }}
-                            onClick={() => {
-                              if (item.href) scrollToSection(item.href)
-                              setActiveDropdown(activeDropdown === item.id ? null : item.id)
-                            }}
-                            className="w-full flex items-center justify-between px-4 py-3 rounded-lg text-left transition-all duration-200 text-deep-blue hover:bg-electric-blue/10 font-sans font-bold"
+                            className="w-full flex items-center justify-between px-4 py-3 rounded-lg transition-all duration-200 text-deep-blue hover:bg-electric-blue/10 font-sans font-bold"
                           >
-                            <div className="flex items-center space-x-3">
+                            <button
+                              onClick={(e) => {
+                                e.preventDefault()
+                                e.stopPropagation()
+                                if (item.href) {
+                                  scrollToSection(item.href)
+                                  setIsMenuOpen(false)
+                                }
+                              }}
+                              className="flex items-center space-x-3 flex-1 text-left"
+                            >
                               <Icon size={20} />
                               <span>{item.label}</span>
-                            </div>
-                            <ChevronDown size={16} className={`transition-transform ${activeDropdown === item.id ? 'rotate-180' : ''}`} />
-                          </motion.button>
+                            </button>
+                            <button
+                              onClick={(e) => {
+                                e.preventDefault()
+                                e.stopPropagation()
+                                setActiveDropdown(activeDropdown === item.id ? null : item.id)
+                              }}
+                              className="p-2"
+                            >
+                              <ChevronDown size={16} className={`transition-transform ${activeDropdown === item.id ? 'rotate-180' : ''}`} />
+                            </button>
+                          </motion.div>
                           <AnimatePresence>
                             {activeDropdown === item.id && (
                               <motion.div
@@ -279,7 +310,11 @@ export default function StickyHeader() {
                                     <motion.button
                                       key={subItem.id}
                                       whileHover={{ x: 4 }}
-                                      onClick={() => handleSubItemClick(subItem)}
+                                      onClick={(e) => {
+                                        e.preventDefault()
+                                        e.stopPropagation()
+                                        handleSubItemClick(subItem)
+                                      }}
                                       className="w-full flex items-center space-x-3 px-4 py-2 rounded-lg text-left transition-all duration-200 text-deep-blue/80 hover:bg-electric-blue/10 text-sm font-sans"
                                     >
                                       <SubIcon size={16} />

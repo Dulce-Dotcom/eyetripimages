@@ -1,6 +1,7 @@
 import HeroSlider from '../components/HeroSlider'
 import Immersive3DSection from '../components/Immersive3DSection'
 import ImmersiveSection from '../components/ImmersiveSection'
+import TestimonialTicker from '../components/TestimonialTicker'
 import OutrunGrid3DSliver from '../components/OutrunGrid3DSliver'
 import AnimationSection from '../components/AnimationSection'
 import ImagesSection from '../components/ImagesSection'
@@ -9,6 +10,7 @@ import LightningSection from '../components/LightningSection'
 import PhotoSection from '../components/PhotoSection'
 import WhatItMeansSection from '../components/WhatItMeansSection'
 import EyeTripVRSection from '../components/EyeTripVRSection'
+import FeaturedTestimonial from '../components/FeaturedTestimonial'
 import StickyHeader from '../components/StickyHeader'
 import CopyrightFooter from '../components/CopyrightFooter'
 
@@ -22,6 +24,9 @@ export default function Home() {
       
       {/* Immersive 3D Experience - Neuroaesthetics Core */}
       <Immersive3DSection />
+      
+      {/* Testimonial Ticker */}
+      <TestimonialTicker />
       
       {/* Immersive VR and Installations */}
       <ImmersiveSection />
@@ -42,6 +47,9 @@ export default function Home() {
       
       {/* What It Means - Philosophy Section */}
       <WhatItMeansSection />
+      
+      {/* Featured Testimonial */}
+      <FeaturedTestimonial />
       
       {/* EyeTripVR Section */}
       <EyeTripVRSection />

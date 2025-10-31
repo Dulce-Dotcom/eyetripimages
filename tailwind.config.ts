@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        'heading': ['var(--font-zain)', 'system-ui', 'sans-serif'],
+        'heading': ['var(--font-noto-sans)', 'system-ui', 'sans-serif'],
         'sans': ['var(--font-noto-sans)', 'system-ui', 'sans-serif'],
       },
       colors: {

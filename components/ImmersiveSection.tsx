@@ -9,6 +9,7 @@ import { getImagePath } from '@/lib/assetPath'
 export default function ImmersiveSection() {
   const containerRef = useRef<HTMLDivElement>(null)
   const [videoLightbox, setVideoLightbox] = useState<string | null>(null)
+  const [vrVideoLoaded, setVrVideoLoaded] = useState(false)
   
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -85,16 +86,31 @@ export default function ImmersiveSection() {
 
           {/* YouTube VR Video Embed Placeholder */}
           <div className="aspect-video max-w-4xl mx-auto rounded-xl overflow-hidden shadow-2xl bg-deep-blue/50">
-            <iframe
-              width="100%"
-              height="100%"
-              src="https://www.youtube.com/embed/Sqi6uv_6xF4"
-              title="EyeTrip Images Video 5 - 360° VR Experience"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-              className="w-full h-full"
-            />
+            {!vrVideoLoaded ? (
+              <div 
+                className="w-full h-full flex items-center justify-center cursor-pointer group"
+                onClick={() => setVrVideoLoaded(true)}
+              >
+                <div className="text-center">
+                  <div className="bg-electric-blue/80 group-hover:bg-electric-blue rounded-full p-6 inline-flex items-center justify-center group-hover:scale-110 transition-all duration-300 mb-4">
+                    <Play size={48} className="text-white" fill="white" />
+                  </div>
+                  <p className="text-hypnotic-white text-lg font-semibold">Click to Load VR Video</p>
+                </div>
+              </div>
+            ) : (
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/Sqi6uv_6xF4"
+                title="EyeTrip Images Video 5 - 360° VR Experience"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="w-full h-full"
+                loading="lazy"
+              />
+            )}
           </div>
         </motion.div>
 
