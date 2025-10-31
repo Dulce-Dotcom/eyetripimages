@@ -2,7 +2,9 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Sparkles, Lightbulb, Eye } from 'lucide-react'
+import { Sparkles, Lightbulb } from 'lucide-react'
+import Image from 'next/image'
+import { getImagePath } from '@/lib/assetPath'
 import PhilosophyModal from './PhilosophyModal'
 
 export default function WhatItMeansSection() {
@@ -27,7 +29,7 @@ export default function WhatItMeansSection() {
       id: 'seeit',
       title: 'Now That You See It',
       description: 'How the brain makes meaning, creates connections, and claims ownership of discoveries',
-      icon: Eye,
+      icon: 'custom-eye',
       gradient: 'from-neon-green to-magenta'
     }
   ]
@@ -77,7 +79,7 @@ export default function WhatItMeansSection() {
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {cards.map((card, idx) => {
-            const Icon = card.icon
+            const Icon = typeof card.icon === 'string' ? null : card.icon
             return (
               <motion.button
                 key={card.id}
@@ -96,7 +98,16 @@ export default function WhatItMeansSection() {
                   transition={{ duration: 0.6 }}
                   className={`w-16 h-16 mb-6 mx-auto rounded-full bg-gradient-to-br ${card.gradient} flex items-center justify-center`}
                 >
-                  <Icon size={32} className="text-deep-blue" />
+                  {Icon ? (
+                    <Icon size={32} className="text-deep-blue" />
+                  ) : (
+                    <Image
+                      src={getImagePath("eyetripvr-iconb.svg")}
+                      alt="Eye Icon"
+                      width={48}
+                      height={48}
+                    />
+                  )}
                 </motion.div>
 
                 {/* Title */}

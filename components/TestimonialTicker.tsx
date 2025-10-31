@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 const testimonials = [
   "I get completely mesmerized - James C.",
@@ -19,9 +19,26 @@ const testimonials = [
   "So cool - Claudia M."
 ]
 
+// Fisher-Yates shuffle algorithm
+const shuffleArray = <T,>(array: T[]): T[] => {
+  const shuffled = [...array]
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+  }
+  return shuffled
+}
+
 export default function TestimonialTicker() {
+  const [shuffledTestimonials, setShuffledTestimonials] = useState(testimonials)
+
+  useEffect(() => {
+    // Randomize testimonials on client-side mount
+    setShuffledTestimonials(shuffleArray(testimonials))
+  }, [])
+
   // Create a doubled array for seamless looping
-  const doubledTestimonials = [...testimonials, ...testimonials]
+  const doubledTestimonials = [...shuffledTestimonials, ...shuffledTestimonials]
 
   return (
     <section

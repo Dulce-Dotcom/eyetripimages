@@ -2,7 +2,7 @@
 
 import { useRef, useState } from 'react'
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
-import { Eye, Globe, Monitor, X, Play } from 'lucide-react'
+import { Globe, Monitor, X, Play } from 'lucide-react'
 import Image from 'next/image'
 import { getImagePath } from '@/lib/assetPath'
 
@@ -62,13 +62,22 @@ export default function ImmersiveSection() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mb-24 bg-hypnotic-white/5 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-hypnotic-white/10"
         >
-          <div className="flex items-center justify-center mb-8">
-            <div className="p-4 rounded-full bg-gradient-to-r from-electric-blue to-neon-green">
-              <Eye size={40} className="text-hypnotic-white" />
-            </div>
-          </div>
-          
-          <h3 className="text-3xl md:text-4xl font-bold text-center mb-6 text-hypnotic-white">
+            <div className="flex items-center justify-center mb-8">
+              <div className="p-4 rounded-full bg-gradient-to-r from-electric-blue to-neon-green">
+                <div className="relative" style={{ width: '40px', height: '40px' }}>
+                  <svg viewBox="0 0 24 24" className="absolute inset-0">
+                    <circle cx="12" cy="12" r="3" fill="currentColor" className="text-hypnotic-white" />
+                  </svg>
+                  <Image
+                    src={getImagePath("eyetripvr-icon.svg")}
+                    alt="EyeTrip Icon"
+                    width={40}
+                    height={40}
+                    className="relative filter brightness-0 invert"
+                  />
+                </div>
+              </div>
+            </div>          <h3 className="text-3xl md:text-4xl font-bold text-center mb-6 text-hypnotic-white">
             VR Experience
           </h3>
           

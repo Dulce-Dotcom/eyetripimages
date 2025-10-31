@@ -27,18 +27,23 @@ export default function CopyrightFooter() {
             className="space-y-4"
             style={{ opacity: 1, transform: 'translateY(0px)' }} // Fallback for static builds
           >
-            <motion.div 
-              whileHover={{ scale: 1.05 }} 
-              className="relative h-8 w-24"
-            >
-              <Image
-                src={getImagePath("eyetripvr-logo3.svg")}
-                alt="EyeTrip Logo"
-                fill
-                className="object-contain filter brightness-0 invert drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]"
-                priority
-              />
-            </motion.div>
+            <div className="flex items-center space-x-3">
+              <motion.div 
+                whileHover={{ scale: 1.05 }} 
+                className="relative h-8 w-24"
+              >
+                <Image
+                  src={getImagePath("eyetripvr-logo3.svg")}
+                  alt="EyeTrip Logo"
+                  fill
+                  className="object-contain filter brightness-0 invert drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]"
+                  priority
+                />
+              </motion.div>
+              <h3 className="text-xl font-extralight text-hypnotic-white tracking-[0.2em]">
+                IMAGES
+              </h3>
+            </div>
             <p className="text-hypnotic-white/70 text-sm leading-relaxed">
               Exploring the intersection of art, technology, and human perception through 
               immersive visual experiences and cutting-edge presentations.

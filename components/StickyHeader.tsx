@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Camera, Zap, Palette, Layers, Home, Mountain, User, Lightbulb, ChevronDown, Sparkles, Eye, ExternalLink, Newspaper } from 'lucide-react'
+import { Menu, X, Camera, Zap, Palette, Layers, Home, Mountain, User, Lightbulb, ChevronDown, Sparkles, ExternalLink, Newspaper } from 'lucide-react'
 import Image from 'next/image'
 import AboutModal from './AboutModal'
 import PhilosophyModal from './PhilosophyModal'
@@ -34,7 +34,7 @@ const navigationStructure = [
     items: [
       { id: 'wonder', label: 'Wonder, Curiosity and Awe', icon: Sparkles, modalType: 'wonder' },
       { id: 'power', label: 'Power to Transform', icon: Lightbulb, modalType: 'power' },
-      { id: 'seeit', label: 'Now That You See It', icon: Eye, modalType: 'seeit' }
+      { id: 'seeit', label: 'Now That You See It', icon: 'custom-eye', modalType: 'seeit' }
     ]
   },
   { id: 'about', label: 'About', icon: User, type: 'modal' as const },
@@ -210,7 +210,21 @@ export default function StickyHeader() {
                                   onClick={() => handleSubItemClick(subItem)}
                                   className="w-full flex items-center space-x-3 px-4 py-3 text-left text-deep-blue hover:bg-electric-blue/10 transition-all duration-200"
                                 >
-                                  <SubIcon size={18} />
+                                  {typeof SubIcon === 'string' ? (
+                                    <div className="relative flex-shrink-0" style={{ width: '18px', height: '18px' }}>
+                                      <Image
+                                        src={getImagePath("eyetripvr-iconb.svg")}
+                                        alt="Eye Icon"
+                                        width={18}
+                                        height={18}
+                                        style={{
+                                          filter: 'brightness(0) saturate(100%) invert(9%) sepia(13%) saturate(2358%) hue-rotate(169deg) brightness(97%) contrast(91%)'
+                                        }}
+                                      />
+                                    </div>
+                                  ) : (
+                                    <SubIcon size={18} />
+                                  )}
                                   <span className="text-sm font-sans font-medium">{subItem.label}</span>
                                 </motion.button>
                               )
@@ -317,7 +331,21 @@ export default function StickyHeader() {
                                       }}
                                       className="w-full flex items-center space-x-3 px-4 py-2 rounded-lg text-left transition-all duration-200 text-deep-blue/80 hover:bg-electric-blue/10 text-sm font-sans"
                                     >
-                                      <SubIcon size={16} />
+                                      {typeof SubIcon === 'string' ? (
+                                        <div className="relative flex-shrink-0" style={{ width: '16px', height: '16px' }}>
+                                          <Image
+                                            src={getImagePath("eyetripvr-iconb.svg")}
+                                            alt="Eye Icon"
+                                            width={16}
+                                            height={16}
+                                            style={{
+                                              filter: 'brightness(0) saturate(100%) invert(9%) sepia(13%) saturate(2358%) hue-rotate(169deg) brightness(97%) contrast(91%)'
+                                            }}
+                                          />
+                                        </div>
+                                      ) : (
+                                        <SubIcon size={16} />
+                                      )}
                                       <span>{subItem.label}</span>
                                     </motion.button>
                                   )
