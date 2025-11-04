@@ -22,7 +22,7 @@ interface VideoGalleryProps {
 export default function VideoGallery({ videos, className = '' }: VideoGalleryProps) {
   const [activeVideo, setActiveVideo] = useState<string | null>(null)
   const [isPlaying, setIsPlaying] = useState(false)
-  const [isMuted, setIsMuted] = useState(true)
+  const [isMuted, setIsMuted] = useState(false)
   const [isFullscreen, setIsFullscreen] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
@@ -226,7 +226,7 @@ export default function VideoGallery({ videos, className = '' }: VideoGalleryPro
               >
                 {activeVideoData.isYouTube ? (
                   <iframe
-                    src={`https://www.youtube.com/embed/${activeVideoData.id}?autoplay=1&mute=${isMuted ? 1 : 0}&controls=0&modestbranding=1&rel=0`}
+                    src={`https://www.youtube.com/embed/${activeVideoData.id}?autoplay=1&mute=0&controls=1&modestbranding=1&rel=0`}
                     className="w-full h-full rounded-lg shadow-2xl"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen
@@ -238,7 +238,7 @@ export default function VideoGallery({ videos, className = '' }: VideoGalleryPro
                     className="w-full h-full rounded-lg shadow-2xl"
                     autoPlay
                     muted={isMuted}
-                    controls={false}
+                    controls={true}
                     onPlay={() => setIsPlaying(true)}
                     onPause={() => setIsPlaying(false)}
                   />

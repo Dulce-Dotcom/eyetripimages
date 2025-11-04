@@ -41,7 +41,7 @@ export default function FeaturedTestimonial() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-2xl md:text-3xl lg:text-4xl font-light text-hypnotic-white leading-relaxed mb-12 italic"
           >
-            "Your work is offering aesthetic experiences that are creating neuromodulation in some really interesting ways."
+            "(David's) work is offering aesthetic experiences that are creating neuromodulation in some really interesting ways."
           </motion.blockquote>
 
           {/* Attribution */}

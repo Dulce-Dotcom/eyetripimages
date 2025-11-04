@@ -115,7 +115,7 @@ export default function PressModal({ isOpen, onClose }: PressModalProps) {
                 </div>
                 
                 <p className="text-deep-blue/80 leading-relaxed mb-4">
-                  <strong>Worlds within Worlds</strong> is an immersive art project by David Aughenbaugh, including music by various artists. It is a presentation of original abstract animation in open public space, using projection and custom screens. The work is designed to have specific effects on the viewer's mental status, quieting the thinking mind and promoting a flow state of active imagination.
+                  <strong>Worlds within worlds</strong> is an immersive art project by David Aughenbaugh, including music by various artists. It is a presentation of original abstract animation in open public space, using projection and custom screens. The work is designed to have specific effects on the viewer's mental state, quieting the thinking mind and promoting a flow state of active imagination.
                 </p>
                 <p className="text-deep-blue/80 leading-relaxed mb-4">
                   <strong>Location:</strong> North County Mall, 272 E Via Rancho Pkwy, Escondido, CA 92025 – lower level
@@ -253,7 +253,7 @@ export default function PressModal({ isOpen, onClose }: PressModalProps) {
                   David Aughenbaugh was part of Gray Area's Cultural Incubator Program, a creative accelerator that propels interdisciplinary creators through strategic mentorship, hands-on professional development, and collaborative support. During his residency, he created a temporary 360º wrap-around projection screen installation as a proof-of-concept for custom projection screens.
                 </p>
                 <p className="text-deep-blue/80 leading-relaxed mb-4">
-                  The circular screen allows many people to experience an immersive version of the animation simultaneously. The overhead circular screen allows viewers to spend time focused on the experience if they choose, or simply pass through, making it accessible in high traffic areas.
+                  The overhead circular screen allows many people to experience an immersive version of the animation simultaneously. This allows viewers to spend time focused on the experience if they choose, or simply pass through, making it accessible in high traffic areas.
                 </p>
                 <div className="mt-6">
                   <a
@@ -286,7 +286,7 @@ export default function PressModal({ isOpen, onClose }: PressModalProps) {
                     <div>
                       <h3 className="text-xl font-bold text-deep-blue mb-2">Academy Award Winner</h3>
                       <p className="text-deep-blue/80 leading-relaxed">
-                        <strong>First Man (2018)</strong> - Won Oscar for Best Visual Effects as part of the visual effects team
+                        <strong>First Man (2018)</strong> - Oscar for Best Visual Effects as part of the visual effects team
                       </p>
                     </div>
                   </div>
@@ -358,7 +358,7 @@ export default function PressModal({ isOpen, onClose }: PressModalProps) {
                 </div>
 
                 <p className="text-deep-blue/80 leading-relaxed mb-6">
-                  David Aughenbaugh served seven years in the computer games industry as an animator and digital video specialist at <strong>Dynamix/Sierra On-Line</strong> from 1992 to 1999. He graduated from Escondido High School and went on to earn his Master of Fine Arts in sculpture from San Diego State University.
+                  David Aughenbaugh served seven years in the computer games industry as an animator and digital video specialist at <strong>Dynamix/Sierra On-Line</strong> from 1992 to 1999. 
                 </p>
 
                 <div className="space-y-3 mb-6">
@@ -433,12 +433,12 @@ export default function PressModal({ isOpen, onClose }: PressModalProps) {
                     { year: '2017', event: 'Pearl - First VR Film Nominated for Oscar' },
                     { year: '2015', event: 'NASA Ames Research Center - Animation for Airspace Relationships' },
                     { year: '2014-Present', event: 'Factory VFX - Senior Compositor' },
-                    { year: '2009-2011', event: 'PDI/Dreamworks - Sequence Compositor' },
+                    { year: '2009-2011', event: 'PDI/Dreamworks' },
                     { year: '2000-2005', event: 'Papaya Farmer & Freelance Work' },
                     { year: '1992-1999', event: 'Dynamix/Sierra On-Line - Animator & Digital Video Specialist' },
                     { year: '1989-1991', event: 'American Film Technologies - Animator' },
-                    { year: '1985', event: 'MFA in Sculpture, San Diego State University' },
-                    { year: '1979', event: 'Graduated Escondido High School' }
+                    { year: '1985', event: ' Sculpture, San Diego State University' },
+                    { year: '1979', event: 'Escondido High School' }
                   ].map((item, index) => (
                     <div key={index} className="flex items-start space-x-4 border-l-2 border-electric-blue/30 pl-4 hover:border-magenta/50 transition-colors">
                       <span className="text-electric-blue font-bold min-w-[60px]">{item.year}</span>
@@ -456,7 +456,7 @@ export default function PressModal({ isOpen, onClose }: PressModalProps) {
                 className="text-center pt-8 border-t border-deep-blue/20"
               >
                 <p className="text-sm text-deep-blue/60 italic mb-2">
-                  "Father (Byron Aughenbaugh) is a professional photographer, specializing in lightning photography."
+                  "Father (Byron Aughenbaugh) was a professional photographer, specializing in lightning photography."
                 </p>
                 <p className="text-sm text-deep-blue/60">
                   For press inquiries and more information, visit{' '}

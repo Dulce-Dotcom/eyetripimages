@@ -52,16 +52,16 @@ export default function TestimonialTicker() {
       className="relative bg-gradient-to-b from-deep-blue via-dark-grey to-deep-blue"
     >
       <style jsx>{`
-        @keyframes scroll-left-to-right {
+        @keyframes scroll-right-to-left {
           from {
-            transform: translateX(-50%);
+            transform: translateX(0%);
           }
           to {
-            transform: translateX(0%);
+            transform: translateX(-50%);
           }
         }
         .ticker-animate {
-          animation: scroll-left-to-right 120s linear infinite;
+          animation: scroll-right-to-left 120s linear infinite;
           will-change: transform;
         }
       `}</style>

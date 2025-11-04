@@ -14,7 +14,7 @@ const gigapixelImagesData = [
   src: getAssetPath('/uploads/2025/02/I1A2429_018kcapq8-1-scaled.jpg'),
     title: 'Disappearing into the Mist',
     dimensions: '22,396 x 12,441 pixels',
-    description: 'Ultra-high resolution capture revealing infinite detail in atmospheric conditions.',
+    description: 'The afternoon sun catches that last bit of rock at Point Lobos, California, as the evening mist drifts in and engulfs the scene.',
     megapixels: '278.9 MP',
     printSize: '75 x 42 feet at 300 DPI'
   },
@@ -23,7 +23,7 @@ const gigapixelImagesData = [
   src: getAssetPath('/uploads/2025/02/I1A2511_108kcapq8-scaled.jpg'),
     title: 'Into the Fog',
     dimensions: '31,165 x 17,941 pixels',
-    description: 'Panoramic stitched photography revealing layers within layers of natural beauty.',
+    description: 'A railroad trestle emerges from the swirling morning fog at Goleta, California.',
     megapixels: '559.2 MP',
     printSize: '104 x 60 feet at 300 DPI'
   },
@@ -32,7 +32,7 @@ const gigapixelImagesData = [
   src: getAssetPath('/uploads/2025/02/I1A2582_078kcapq8-scaled.jpg'),
     title: 'Side of a Barn',
     dimensions: '35,436 x 43,265 pixels',
-    description: 'Architectural details captured at unprecedented resolution.',
+    description: 'Dramatic simplicity, limited color palette, and empty space--with an invitation to walk closer and explore the detail.',
     megapixels: '1,533.2 MP',
     printSize: '118 x 144 feet at 300 DPI'
   },
@@ -41,16 +41,16 @@ const gigapixelImagesData = [
   src: getAssetPath('/uploads/2025/02/I1A4878_058kcapq8-scaled.jpg'),
     title: 'Uplift',
     dimensions: '72,468 x 41,769 pixels',
-    description: 'Geological formations in extraordinary detail, revealing textures invisible to the naked eye.',
+    description: 'A study in parallels between the clouds, the trees and the hillside, with detail down to the very blades of grass.',
     megapixels: '3,027.1 MP',
     printSize: '241 x 139 feet at 300 DPI'
   },
   {
-    id: 'matrix-fountain',
+    id: 'follow-the-rainbow',
   src: getAssetPath('/uploads/2025/02/I1A5872_088kcapq8-scaled.jpg'),
-    title: 'Matrix Fountain',
+    title: 'Follow the Rainbow',
     dimensions: '57,344 x 36,864 pixels',
-    description: 'Digital painting captured in gigapixel resolution for infinite exploration.',
+    description: 'A panoramic view of multiple storms in southeastern Arizona at sunset.',
     megapixels: '2,115.1 MP',
     printSize: '191 x 123 feet at 300 DPI'
   },
@@ -59,7 +59,7 @@ const gigapixelImagesData = [
   src: getAssetPath('/uploads/2025/02/MG_7379_03_6k_q3-scaled.jpg'),
     title: 'Fossil Falls Cliff Face',
     dimensions: '19,395 x 11,011 pixels',
-    description: 'Dramatic cliff formations captured with extraordinary geological detail.',
+    description: 'Lava cliff face baked in the sun to deep reds, with blues and greens coming from minerals in the stone',
     megapixels: '213.6 MP',
     printSize: '65 x 37 feet at 300 DPI'
   },
@@ -68,7 +68,7 @@ const gigapixelImagesData = [
   src: getAssetPath('/uploads/2025/02/mycososm_7563_06_6k_q3b-scaled.jpg'),
     title: 'Mycocosm',
     dimensions: '19,187 x 13,865 pixels',
-    description: 'Microscopic worlds revealed through gigapixel stitching technology.',
+    description: 'A varied landscape and a thriving community of moss, lichen, and fungus.',
     megapixels: '266.1 MP',
     printSize: '64 x 46 feet at 300 DPI'
   },
@@ -77,7 +77,7 @@ const gigapixelImagesData = [
   src: getAssetPath('/uploads/2025/02/N9A0528_01-scaled.jpg'),
     title: 'Crossings at Carlsbad',
     dimensions: '10,563 x 3,861 pixels',
-    description: 'Architectural intersections captured in stunning panoramic detail.',
+    description: 'A beautifully designed landscape captured in stunning panoramic detail.',
     megapixels: '40.8 MP',
     printSize: '35 x 13 feet at 300 DPI'
   }
@@ -294,6 +294,37 @@ export default function GigapixelSection() {
               <div>
                 <p className="text-3xl font-bold text-hypnotic-white mb-1">500+</p>
                 <p className="text-hypnotic-white/60">Source Images</p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Advanced Resolution Info */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-center mt-12"
+        >
+          <div className="bg-gradient-to-br from-magenta/20 to-electric-blue/20 backdrop-blur-sm rounded-2xl p-8 border border-magenta/30">
+            <h3 className="text-2xl font-semibold text-hypnotic-white mb-6">
+              Beyond Gigapixel: Extreme Resolution
+            </h3>
+            <div className="space-y-6 text-left max-w-4xl mx-auto">
+              <div className="bg-hypnotic-white/10 rounded-lg p-6 border border-magenta/20">
+                <h4 className="text-xl font-bold text-magenta mb-3">Matrix Flyover Video</h4>
+                <p className="text-hypnotic-white/90 leading-relaxed">
+                  The Matrix Flyover video is based on an image with an effective resolution of 384,480 x 256,244 pixels, 
+                  or <span className="font-bold text-magenta">98.5 gigapixels</span>. That would be 108.6 feet long and 71.1 feet high, at 300 dpi.
+                </p>
+              </div>
+              <div className="bg-hypnotic-white/10 rounded-lg p-6 border border-electric-blue/20">
+                <h4 className="text-xl font-bold text-electric-blue mb-3">Super Zoom Animations</h4>
+                <p className="text-hypnotic-white/90 leading-relaxed">
+                  The Super Zoom animations are based on images, that if printed would be larger than the Milky Way Galaxy. 
+                  The horizontal resolution of the Scraptangle image is equivalent to{' '}
+                  <span className="font-bold text-electric-blue">125,728,547,573,089,599,609,375,000 pixels</span>.
+                </p>
               </div>
             </div>
           </div>

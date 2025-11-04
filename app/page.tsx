@@ -13,11 +13,13 @@ import EyeTripVRSection from '../components/EyeTripVRSection'
 import FeaturedTestimonial from '../components/FeaturedTestimonial'
 import StickyHeader from '../components/StickyHeader'
 import CopyrightFooter from '../components/CopyrightFooter'
+import EyeTripVRSidebar from '../components/EyeTripVRSidebar'
 
 export default function Home() {
   return (
     <>
       <StickyHeader />
+      <EyeTripVRSidebar />
       <main className="min-h-screen">
         {/* Hero - Immersive Introduction */}
         <HeroSlider />
