@@ -10,9 +10,37 @@ const notoSans = Noto_Sans({
 })
 
 export const metadata: Metadata = {
-  title: 'Eyetrip Images - Portfolio',
-  description: 'An immersive portfolio showcase featuring stunning visual experiences',
-  keywords: ['portfolio', 'photography', 'visual arts', 'immersive experience'],
+  title: 'David Aughenbaugh - EyeTrip Images ™',
+  description: 'David Aughenbaugh Worlds within Worlds Immersive Animation Images Gigapixel Photography Lightning Photo David Aughenbaugh Worlds within Worlds Immersive Animation',
+  keywords: ['David Aughenbaugh', 'EyeTrip Images', 'Gigapixel Photography', 'Lightning Photography', 'Immersive Animation', 'Visual Art', 'Arizona Artist', 'Worlds within Worlds', 'neuroaesthetics', 'VR art'],
+  authors: [{ name: 'David Aughenbaugh' }],
+  creator: 'David Aughenbaugh',
+  publisher: 'EyeTrip Images',
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://eyetripimages.com/",
+    siteName: "EyeTrip Images",
+    title: "David Aughenbaugh - EyeTrip Images ™",
+    description: "Immersive visual art experiences. High-resolution gigapixel photography, animations, and VR installations that explore neuroaesthetics and visual perception.",
+    images: [
+      {
+        url: "/images/eyetripimages-social-image.png",
+        width: 1200,
+        height: 630,
+        alt: "EyeTrip Images - Immersive Visual Art",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "David Aughenbaugh - EyeTrip Images ™",
+    description: "Immersive visual art experiences. High-resolution gigapixel photography, animations, and VR installations.",
+    images: ["/images/eyetripimages-social-image.png"],
+  },
+  alternates: {
+    canonical: 'https://eyetripimages.com/',
+  },
 }
 
 export default function RootLayout({

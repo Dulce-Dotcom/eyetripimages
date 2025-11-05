@@ -85,6 +85,19 @@ export default function ImmersiveSection() {
             <p className="text-2xl md:text-3xl font-bold text-electric-blue mb-4">
               The Future!
             </p>
+            
+            {/* Vintage VR Headset Image */}
+            <div className="relative w-full max-w-md mx-auto mb-8 rounded-lg overflow-hidden">
+              <Image
+                src={getImagePath('GernVR.jpg')}
+                alt="Vintage VR Headset"
+                width={600}
+                height={300}
+                className="w-full h-auto object-cover object-center"
+                style={{ objectPosition: 'center 30%' }}
+              />
+            </div>
+            
             <p className="text-lg text-hypnotic-white/80 max-w-3xl mx-auto mb-8">
               If you happen to have goggles, you can get the VR experience here. Phones also work if you have the YouTube app.
             </p>
