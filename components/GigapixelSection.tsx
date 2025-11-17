@@ -16,7 +16,7 @@ const gigapixelImagesData = [
     dimensions: '22,396 x 12,441 pixels',
     description: 'The afternoon sun catches that last bit of rock at Point Lobos, California, as the evening mist drifts in and engulfs the scene.',
     megapixels: '278.9 MP',
-    printSize: '75 x 42 feet at 300 DPI'
+    printSize: '75" x 42" (6.2\' x 3.5\') at 300 DPI'
   },
   {
     id: 'into-fog',
@@ -25,7 +25,7 @@ const gigapixelImagesData = [
     dimensions: '31,165 x 17,941 pixels',
     description: 'A railroad trestle emerges from the swirling morning fog at Goleta, California.',
     megapixels: '559.2 MP',
-    printSize: '104 x 60 feet at 300 DPI'
+    printSize: '104" x 60" (8.7\' x 5\') at 300 DPI'
   },
   {
     id: 'side-barn',
@@ -34,7 +34,7 @@ const gigapixelImagesData = [
     dimensions: '35,436 x 43,265 pixels',
     description: 'Dramatic simplicity, limited color palette, and empty space--with an invitation to walk closer and explore the detail.',
     megapixels: '1,533.2 MP',
-    printSize: '118 x 144 feet at 300 DPI'
+    printSize: '118" x 144" (9.8\' x 12\') at 300 DPI'
   },
   {
     id: 'uplift',
@@ -43,7 +43,7 @@ const gigapixelImagesData = [
     dimensions: '72,468 x 41,769 pixels',
     description: 'A study in parallels between the clouds, the trees and the hillside, with detail down to the very blades of grass.',
     megapixels: '3,027.1 MP',
-    printSize: '241 x 139 feet at 300 DPI'
+    printSize: '241" x 139" (20\' x 11.6\') at 300 DPI'
   },
   {
     id: 'follow-the-rainbow',
@@ -52,7 +52,7 @@ const gigapixelImagesData = [
     dimensions: '57,344 x 36,864 pixels',
     description: 'A panoramic view of multiple storms in southeastern Arizona at sunset.',
     megapixels: '2,115.1 MP',
-    printSize: '191 x 123 feet at 300 DPI'
+    printSize: '191" x 123" (15.9\' x 10.3\') at 300 DPI'
   },
   {
     id: 'fossil-falls',
@@ -61,7 +61,7 @@ const gigapixelImagesData = [
     dimensions: '19,395 x 11,011 pixels',
     description: 'Lava cliff face baked in the sun to deep reds, with blues and greens coming from minerals in the stone',
     megapixels: '213.6 MP',
-    printSize: '65 x 37 feet at 300 DPI'
+    printSize: '65" x 37" (5.4\' x 3.1\') at 300 DPI'
   },
   {
     id: 'mycocosm',
@@ -70,7 +70,7 @@ const gigapixelImagesData = [
     dimensions: '19,187 x 13,865 pixels',
     description: 'A varied landscape and a thriving community of moss, lichen, and fungus.',
     megapixels: '266.1 MP',
-    printSize: '64 x 46 feet at 300 DPI'
+    printSize: '64" x 46" (5.3\' x 3.8\') at 300 DPI'
   },
   {
     id: 'crossings-carlsbad',
@@ -79,7 +79,7 @@ const gigapixelImagesData = [
     dimensions: '10,563 x 3,861 pixels',
     description: 'A beautifully designed landscape captured in stunning panoramic detail.',
     megapixels: '40.8 MP',
-    printSize: '35 x 13 feet at 300 DPI'
+    printSize: '35" x 13" (2.9\' x 1.1\') at 300 DPI'
   }
 ]
 
@@ -174,7 +174,7 @@ export default function GigapixelSection() {
           >
             These images are made from many individual frames, combined to create one large image. 
             As a result, they can contain far more detail than a normal photograph. Some are over a gigapixel in size. 
-            They can be printed very large. The largest one shown here would be 32 feet across, if it were printed at 300 dpi.
+            They can be printed very large. The largest one shown here would be 241 inches (20 feet) across, if it were printed at 300 dpi.
           </motion.p>
         </motion.div>
 

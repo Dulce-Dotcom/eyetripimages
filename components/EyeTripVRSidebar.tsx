@@ -232,7 +232,7 @@ export default function EyeTripVRSidebar() {
                   STEP INSIDE THE ARTWORKS
                 </motion.h3>
                 <p className="text-base md:text-lg text-hypnotic-white/90 leading-relaxed font-medium">
-                  Experience Oscar-winning infinite zoom animations in immersive VR
+                  Experience award-winning infinite zoom animations in immersive VR
                 </p>
               </motion.div>
 
