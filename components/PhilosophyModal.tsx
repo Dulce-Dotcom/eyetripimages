@@ -60,8 +60,7 @@ const modalContent = {
         title: 'The crossroads of science, the arts, and technology',
         image: 'power_birdogadillosaurus.jpg',
         content: [
-          'Your Brain on Art • NEW YORK TIMES BESTSELLER • A life-altering journey through the science of neuroaesthetics, which offers proof for how our brains and bodies transform when we participate in the arts—and how this knowledge can improve our health, enable us to flourish, and build stronger communities.',
-          'I contacted the authors, Susan Magsamen and Ivy Ross and told them about my work. They seemed impressed with the work, and are currently looking into who they could put me in touch with, including researchers at places like UCSF and UC Berkeley.',
+          'I contacted the authors, Susan Magsamen and Ivy Ross and told them about my work. Magsamen is in leadership of something called The NeuroArts Blueprint Initiative and she suggested I get involved. Here is a description from the website: "Neuroarts is the transdisciplinary study of how the arts and aesthetic experiences measurably change the body, brain, and behavior and how this knowledge is translated into specific practices that advance health and wellbeing."',
           'Magsamen is also in leadership of something called The NeuroArts Blueprint Initiative. Here is a description from the website: "Neuroarts is the transdisciplinary study of how the arts and aesthetic experiences measurably change the body, brain, and behavior and how this knowledge is translated into specific practices that advance health and wellbeing."',
           'I am creating animation that is subjectively attractive, but has a deeper function that viewers may recognize. This work is grounded in a long history of art and science that are coming together in ways that are both new, and as old as fire, with humans gathering around it to dance.'
         ]
