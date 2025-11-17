@@ -41,7 +41,7 @@ export default function FeaturedTestimonial() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-2xl md:text-3xl lg:text-4xl font-light text-hypnotic-white leading-relaxed mb-12 italic"
           >
-            "(David's) work is offering aesthetic experiences that are creating neuromodulation in some really interesting ways."
+            "Awesome! A true mind-bending experience."
           </motion.blockquote>
 
           {/* Attribution */}
@@ -53,10 +53,7 @@ export default function FeaturedTestimonial() {
           >
             <div className="inline-block">
               <p className="text-xl md:text-2xl font-semibold bg-gradient-to-r from-magenta to-electric-blue bg-clip-text text-transparent mb-2">
-                Susan Magsamen
-              </p>
-              <p className="text-lg text-hypnotic-white/70">
-                Co-author of <span className="italic">Your Brain on Art: How the Arts Transform Us</span>
+                Judy O.
               </p>
             </div>
           </motion.div>

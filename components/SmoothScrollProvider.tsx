@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Lenis from 'lenis'
 
 interface SmoothScrollProviderProps {
@@ -8,7 +8,15 @@ interface SmoothScrollProviderProps {
 }
 
 export default function SmoothScrollProvider({ children }: SmoothScrollProviderProps) {
+  const [mounted, setMounted] = useState(false)
+
   useEffect(() => {
+    setMounted(true)
+    
+    // Only initialize Lenis on desktop
+    const isMobile = window.innerWidth < 768
+    if (isMobile) return
+
     // Initialize Lenis
     const lenis = new Lenis({
       duration: 1.2,

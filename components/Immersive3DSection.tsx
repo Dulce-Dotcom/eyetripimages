@@ -8,10 +8,12 @@ import { getVideoPath } from '@/lib/assetPath'
 export default function Immersive3DSection() {
   const containerRef = useRef<HTMLDivElement>(null)
   const [mounted, setMounted] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
   
-  // Ensure component is mounted on client side
+  // Ensure component is mounted on client side and detect mobile
   useEffect(() => {
     setMounted(true)
+    setIsMobile(window.innerWidth < 768)
   }, [])
   
   // Track scroll progress specifically for this section
@@ -27,16 +29,27 @@ export default function Immersive3DSection() {
   const sceneOpacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.3, 0.7, 1, 0.8])
   
   // Don't render scroll-dependent animations until mounted
+  // SSR fallback without any BabylonScene to prevent mobile GPU crashes
   if (!mounted) {
     return (
       <section 
         ref={containerRef}
         className="relative h-screen w-full overflow-hidden bg-gradient-to-b from-deep-blue via-dark-grey to-deep-blue"
       >
-        {/* Static fallback during SSR */}
-        <div className="absolute inset-0 z-10">
-          <BabylonScene scrollProgress={0} />
+        {/* Video background for SSR */}
+        <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            className="w-full h-full object-cover"
+          >
+            <source src={getVideoPath("stumpy_rect_16_9_4ktest.mp4")} type="video/mp4" />
+          </video>
         </div>
+        
         <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
           <div className="text-center">
             <h2 className="text-7xl md:text-9xl lg:text-[12rem] font-bold leading-none">
@@ -81,14 +94,16 @@ export default function Immersive3DSection() {
         </video>
       </div>
 
-      {/* 3D Babylon Scene - Background */}
-      <motion.div 
-        style={{ opacity: sceneOpacity }}
-        className="absolute inset-0 z-10"
-        suppressHydrationWarning
-      >
-        <BabylonScene scrollProgress={rotationProgress} />
-      </motion.div>
+      {/* 3D Babylon Scene - Background - Desktop Only */}
+      {!isMobile && (
+        <motion.div 
+          style={{ opacity: sceneOpacity }}
+          className="absolute inset-0 z-10"
+          suppressHydrationWarning
+        >
+          <BabylonScene scrollProgress={rotationProgress} />
+        </motion.div>
+      )}
       
       {/* Sticky Text Overlay */}
       <motion.div 

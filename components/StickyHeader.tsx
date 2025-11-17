@@ -149,12 +149,12 @@ export default function StickyHeader() {
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center space-x-2" style={{ opacity: 1 }}>
               <motion.div 
                 whileHover={{ scale: 1.05 }} 
-                className="cursor-pointer relative h-8 w-24"
+                className="cursor-pointer relative h-8 w-32"
                 onClick={() => scrollToSection('#')}
               >
                 <Image
-                  src={getImagePath("eyetripvr-logo3.svg")}
-                  alt="EyeTrip Logo"
+                  src={getImagePath("eyetripimages-wide.svg")}
+                  alt="EyeTrip Images Logo"
                   fill
                   className="object-contain filter brightness-0 invert drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]"
                   priority

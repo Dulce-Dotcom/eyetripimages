@@ -1,12 +1,19 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Globe, Mail, Copyright } from 'lucide-react'
 import Image from 'next/image'
 import { getImagePath } from '@/lib/assetPath'
 
 export default function CopyrightFooter() {
-  const currentYear = new Date().getFullYear()
+  const [mounted, setMounted] = useState(false)
+  const [currentYear, setCurrentYear] = useState(2025)
+
+  useEffect(() => {
+    setMounted(true)
+    setCurrentYear(new Date().getFullYear())
+  }, [])
 
   return (
     <motion.footer
@@ -30,19 +37,16 @@ export default function CopyrightFooter() {
             <div className="flex items-center space-x-3">
               <motion.div 
                 whileHover={{ scale: 1.05 }} 
-                className="relative h-8 w-24"
+                className="relative h-8 w-32"
               >
                 <Image
-                  src={getImagePath("eyetripvr-logo3.svg")}
-                  alt="EyeTrip Logo"
+                  src={getImagePath("eyetripimages-wide.svg")}
+                  alt="EyeTrip Images Logo"
                   fill
                   className="object-contain filter brightness-0 invert drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]"
                   priority
                 />
               </motion.div>
-              <h3 className="text-xl font-extralight text-hypnotic-white tracking-[0.2em]">
-                IMAGES
-              </h3>
             </div>
             <p className="text-hypnotic-white/70 text-sm leading-relaxed">
               Exploring the intersection of art, technology, and human perception through 

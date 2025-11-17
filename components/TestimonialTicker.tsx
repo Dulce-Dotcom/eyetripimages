@@ -30,12 +30,29 @@ const shuffleArray = <T,>(array: T[]): T[] => {
 }
 
 export default function TestimonialTicker() {
+  const [mounted, setMounted] = useState(false)
   const [shuffledTestimonials, setShuffledTestimonials] = useState(testimonials)
 
   useEffect(() => {
+    setMounted(true)
     // Randomize testimonials on client-side mount
     setShuffledTestimonials(shuffleArray(testimonials))
   }, [])
+
+  // Don't render until mounted to prevent hydration mismatch
+  if (!mounted) {
+    return (
+      <section
+        style={{
+          width: '100vw',
+          height: 120,
+          position: 'relative',
+          overflow: 'hidden'
+        }}
+        aria-label="Testimonials"
+      />
+    )
+  }
 
   // Create a doubled array for seamless looping
   const doubledTestimonials = [...shuffledTestimonials, ...shuffledTestimonials]

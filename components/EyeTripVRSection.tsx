@@ -99,8 +99,8 @@ export default function EyeTripVRSection() {
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="relative w-96 h-96">
             <Image
-              src={getImagePath("eyetripvr-logo3.svg")}
-              alt="EyeTripVR Logo"
+              src={getImagePath("eyetripimages-tall.svg")}
+              alt="EyeTrip Images Logo"
               fill
               className="object-contain filter brightness-0 invert drop-shadow-[0_8px_16px_rgba(0,0,0,0.8)]"
               priority
@@ -222,8 +222,8 @@ export default function EyeTripVRSection() {
       >
         <div className="relative w-64 h-64 md:w-96 md:h-96 lg:w-[32rem] lg:h-[32rem]">
           <Image
-            src={getImagePath("eyetripvr-logo3.svg")}
-            alt="EyeTripVR Logo"
+            src={getImagePath("eyetripimages-tall.svg")}
+            alt="EyeTrip Images Logo"
             fill
             className="object-contain filter brightness-0 invert drop-shadow-[0_8px_16px_rgba(0,0,0,0.8)]"
             priority

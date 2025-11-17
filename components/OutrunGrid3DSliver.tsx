@@ -13,9 +13,12 @@ const ICON_PATHS = [
 export default function OutrunGrid3DSliver() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [hovered, setHovered] = useState(false)
+  const [mounted, setMounted] = useState(false)
   const iconsRef = useRef<HTMLImageElement[]>([])
 
   useEffect(() => {
+    setMounted(true)
+    
     const canvas = canvasRef.current
     if (!canvas) return
 

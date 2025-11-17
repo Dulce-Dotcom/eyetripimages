@@ -1,0 +1,16 @@
+# robots.txt for eyetripimages.com
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://eyetripimages.com/sitemap.xml
+
+# Disallow admin and private directories
+Disallow: /api/
+Disallow: /_next/
+Disallow: /old-wp-site/
+
+# Allow all image directories
+Allow: /images/
+Allow: /uploads/
+Allow: /video/

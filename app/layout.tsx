@@ -2,6 +2,9 @@ import type { Metadata } from 'next'
 import { Noto_Sans } from 'next/font/google'
 import './globals.css'
 import SmoothScrollProvider from '../components/SmoothScrollProvider'
+import ErrorBoundary from '../components/ErrorBoundary'
+import ClientErrorHandler from './client-error-handler'
+import ServiceWorkerRegistration from '../components/ServiceWorkerRegistration'
 
 const notoSans = Noto_Sans({ 
   weight: ['200', '300', '400', '500', '600', '700', '800', '900'],
@@ -51,11 +54,15 @@ export default function RootLayout({
   return (
     <html lang="en" className={notoSans.variable}>
       <body className="antialiased relative font-sans">
-        <SmoothScrollProvider>
-          <div className="relative">
-            {children}
-          </div>
-        </SmoothScrollProvider>
+        <ServiceWorkerRegistration />
+        <ClientErrorHandler />
+        <ErrorBoundary>
+          <SmoothScrollProvider>
+            <div className="relative">
+              {children}
+            </div>
+          </SmoothScrollProvider>
+        </ErrorBoundary>
       </body>
     </html>
   )

@@ -122,7 +122,7 @@ export default function ImagesSection() {
           >
             All Images
           </button>
-          {series.map((seriesName) => (
+          {series.filter(name => name !== 'Gigapixel').map((seriesName) => (
             <button
               key={seriesName}
               onClick={() => setSelectedSeries(seriesName)}

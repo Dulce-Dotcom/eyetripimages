@@ -106,22 +106,18 @@ export default function HeroSlider() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="flex flex-col items-center mb-6"
+            className="flex flex-col items-center mb-6 pt-20"
           >
             {/* EyeTrip Logo */}
-            <div className="relative w-64 h-32 md:w-96 md:h-48 mb-2">
+            <div className="relative w-64 h-64 md:w-96 md:h-96">
               <Image
-                src={getImagePath("eyetripvr-logo3.svg")}
-                alt="EyeTrip Logo"
+                src={getImagePath("eyetripimages-tall.svg")}
+                alt="EyeTrip Images Logo"
                 fill
                 className="object-contain filter brightness-0 invert drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]"
                 priority
               />
             </div>
-            {/* Images Text */}
-            <h1 className="text-5xl md:text-7xl font-extralight text-hypnotic-white tracking-[0.3em]">
-              IMAGES
-            </h1>
           </motion.div>
           
           <motion.div

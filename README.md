@@ -1,65 +1,94 @@
-# EyeTrip Images Portfolio
+# EyeTrip Images
 
-A Next.js portfolio website showcasing immersive visual experiences.
+A Next.js portfolio website showcasing the visual art and immersive experiences of David Aughenbaugh. This site serves as the primary online gallery for high-resolution photography, animations, and visual media created for museum installations, VR exhibitions, and public art displays.
+
+## About EyeTrip Images
+
+EyeTrip Images is the visual content portfolio and production hub for David Aughenbaugh's immersive art projects. The work spans multiple mediums including gigapixel photography, lightning photography, animated sequences, and interactive 3D experiences designed to explore neuroaesthetics and visual perception.
+
+### Connection to EyeTrip VR
+
+This site works in conjunction with **[EyeTrip VR](https://eyetripvr.com)**, which showcases the VR installation side of David's work. While eyetripimages.com displays the source photography, animations, and 2D visual content, eyetripvr.com features the immersive VR experiences built from these assets for museums, galleries, and public exhibitions.
+
+**Two complementary platforms:**
+- **EyeTripImages.com** - Portfolio of source visual media, photography, and animations
+- **EyeTripVR.com** - VR installations and immersive exhibition experiences
 
 ## Live Site
-🚀 [https://dulce-dotcom.github.io/eyetripimages/](https://dulce-dotcom.github.io/eyetripimages/)
+🚀 **[https://eyetripimages.com](https://eyetripimages.com)**
 
-## GitHub Pages Deployment
+## Technologies
 
-This site is configured for GitHub Pages deployment with the following setup:
+- **Next.js 14** - React framework with static export for optimal performance
+- **TypeScript** - Type-safe development
+- **Tailwind CSS** - Utility-first styling
+- **Framer Motion** - Smooth animations and scroll-based interactions
+- **BabylonJS** - 3D WebGL rendering (desktop only, optimized for mobile)
+- **Lucide React Icons** - Modern icon system
 
-### Configuration Files
-- `next.config.js` - Configured for static export with proper base path
-- `.github/workflows/deploy.yml` - GitHub Actions workflow for automatic deployment
-- `package.json` - Updated with deployment scripts
+## Portfolio Sections
 
-### Setup Steps
+1. **Hero Slider** - Cinematic rotating background showcasing featured works
+2. **Gigapixel Photography** - Ultra-high resolution panoramic stitched images (50+ megapixels)
+3. **Lightning Photography** - Monsoon storm captures from Arizona's Sonoran Desert
+4. **Photography Gallery** - Curated portfolio of fine art and experimental photography
+5. **Video Gallery** - Motion content, time-lapses, and animated sequences
+6. **Animation Section** - Interactive visual effects and generative art
+7. **Immersive 3D Section** - "Neuroaesthetics" - WebGL experiences with scroll-driven interactions
 
-1. **Repository Settings**
-   - Go to Settings > Pages in your GitHub repository
-   - Select "GitHub Actions" as the source
-   - The site will automatically deploy on pushes to the `master` branch
+## Development
 
-2. **Local Development**
-   ```bash
-   npm install
-   npm run dev
-   ```
+### Local Setup
+```bash
+# Install dependencies
+npm install
 
-3. **Manual Deployment**
-   ```bash
-   npm run build
-   npm run export
-   ```
+# Run development server
+npm run dev
+```
 
-### Important Notes
+### Building & Deployment
+```bash
+# Build static export
+npm run build
 
-- All image and video paths are configured with the `/eyetripimages` base path for GitHub Pages
-- The site uses static export mode for GitHub Pages compatibility
-- Images are set to unoptimized mode for static hosting
+# Deploy to SiteGround hosting via SSH
+./deploy.sh
+```
 
 ### Project Structure
+- `/components` - React components for portfolio sections and UI elements
+- `/app` - Next.js app router with layout and page definitions
+- `/public` - Static assets (images, videos, service worker)
+- `/public/uploads/` - Portfolio media organized by date
+- `/lib` - Utility functions for asset paths and image handling
 
-- `/components` - React components for different portfolio sections
-- `/app` - Next.js app directory with pages and global styles
-- `/public` - Static assets including images and videos
-- `/uploads/2025/02/` - Portfolio images organized by date
+## Mobile Optimization
 
-### Technologies
+The site uses responsive design with special considerations for mobile:
+- **BabylonJS disabled on mobile** (< 768px width) to prevent GPU memory issues
+- **Service worker** for aggressive cache clearing
+- **Video backgrounds** as fallback for mobile devices
+- **Lazy loading** for images and heavy media assets
 
-- Next.js 14
-- Tailwind CSS
-- Framer Motion
-- TypeScript
-- Lucide React Icons
+## Performance Features
 
-### Sections
+- Static site generation for fast load times
+- Optimized image delivery with proper sizing
+- Scroll-based animations with `will-change` optimization
+- Code splitting and dynamic imports
+- Cache-busting with unique build IDs
 
-1. **Hero Slider** - Rotating background images with site introduction
-2. **Gigapixel Section** - Ultra-high resolution stitched photography
-3. **Lightning Section** - Storm photography from Arizona
-4. **Photo Section** - General photography portfolio
-5. **Video Gallery** - Video content and animations
-6. **Animation Section** - Interactive animations and effects
-7. **Immersive 3D Section** - 3D experiences and video backgrounds
+## Deployment History
+
+Site deployed to **SiteGround** hosting with SSH rsync:
+- Port: 18765
+- Path: `www/eyetripimages.com/public_html/`
+- Build count: 12+ successful deployments
+- Cache strategy: Service worker + HTTP headers
+
+---
+
+**Artist**: David Aughenbaugh  
+**Portfolio**: [eyetripimages.com](https://eyetripimages.com)  
+**VR Exhibitions**: [eyetripvr.com](https://eyetripvr.com)
