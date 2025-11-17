@@ -1,10 +1,11 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X } from 'lucide-react'
+import { X, ZoomIn } from 'lucide-react'
 import Image from 'next/image'
 import { getImagePath } from '@/lib/assetPath'
+import ImageLightbox from './ImageLightbox'
 
 interface PhilosophyModalProps {
   isOpen: boolean
@@ -89,6 +90,21 @@ const modalContent = {
 
 export default function PhilosophyModal({ isOpen, onClose, title, content }: PhilosophyModalProps) {
   const contentData = modalContent[content]
+  const [lightboxOpen, setLightboxOpen] = useState(false)
+  const [lightboxImage, setLightboxImage] = useState<any>(null)
+
+  const openLightbox = (image: string, imageTitle: string) => {
+    setLightboxImage({
+      id: 'philosophy-image',
+      src: getImagePath(image),
+      title: imageTitle,
+    })
+    setLightboxOpen(true)
+  }
+
+  const closeLightbox = () => {
+    setLightboxOpen(false)
+  }
 
   // Prevent body scroll when modal is open
   useEffect(() => {
@@ -181,13 +197,22 @@ export default function PhilosophyModal({ isOpen, onClose, title, content }: Phi
                     </h3>
                   )}
                   {'image' in section && section.image && (
-                    <div className="relative w-full h-96 mb-6 rounded-lg overflow-hidden shadow-lg">
+                    <div 
+                      className="relative w-full h-96 mb-6 rounded-lg overflow-hidden shadow-lg group cursor-pointer"
+                      onClick={() => openLightbox(section.image!, section.title)}
+                    >
                       <Image
                         src={getImagePath(section.image)}
                         alt={section.title}
                         fill
-                        className="object-contain"
+                        className="object-contain transition-transform duration-300 group-hover:scale-105"
                       />
+                      {/* Zoom indicator overlay */}
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
+                        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 rounded-full p-3">
+                          <ZoomIn className="w-8 h-8 text-deep-blue" />
+                        </div>
+                      </div>
                     </div>
                   )}
                   {section.content.map((paragraph, pIdx) => (
@@ -199,6 +224,18 @@ export default function PhilosophyModal({ isOpen, onClose, title, content }: Phi
               ))}
             </div>
           </motion.div>
+
+          {/* Lightbox */}
+          {lightboxImage && (
+            <ImageLightbox
+              images={[lightboxImage]}
+              currentIndex={0}
+              isOpen={lightboxOpen}
+              onClose={closeLightbox}
+              onNext={() => {}}
+              onPrevious={() => {}}
+            />
+          )}
         </motion.div>
       )}
     </AnimatePresence>
