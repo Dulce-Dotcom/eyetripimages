@@ -52,8 +52,8 @@ export default function FeaturedTestimonial() {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <div className="inline-block">
-              <p className="text-xl md:text-2xl font-semibold bg-gradient-to-r from-magenta to-electric-blue bg-clip-text text-transparent mb-2">
-                Judy O.
+              <p className="text-xl md:text-2xl font-semibold text-hypnotic-white mb-2">
+                — Judy O.
               </p>
             </div>
           </motion.div>

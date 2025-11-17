@@ -284,7 +284,7 @@ export default function PressModal({ isOpen, onClose }: PressModalProps) {
                   <div className="flex items-start space-x-4">
                     <Award size={32} className="text-magenta flex-shrink-0 mt-1" />
                     <div>
-                      <h3 className="text-xl font-bold text-deep-blue mb-2">Academy Award Winner</h3>
+                      <h3 className="text-xl font-bold text-deep-blue mb-2">Academy Award Win</h3>
                       <p className="text-deep-blue/80 leading-relaxed">
                         <strong>First Man (2018)</strong> - Oscar for Best Visual Effects as part of the visual effects team
                       </p>
