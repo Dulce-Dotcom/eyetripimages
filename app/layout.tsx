@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Noto_Sans } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 import SmoothScrollProvider from '../components/SmoothScrollProvider'
 import ErrorBoundary from '../components/ErrorBoundary'
@@ -54,17 +55,19 @@ export default function RootLayout({
   return (
     <html lang="en" className={notoSans.variable}>
       <head>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-13LJT5ZV5Z"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-13LJT5ZV5Z');
-            `,
-          }}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-13LJT5ZV5Z"
+          strategy="afterInteractive"
         />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-13LJT5ZV5Z');
+          `}
+        </Script>
       </head>
       <body className="antialiased relative font-sans">
         <ServiceWorkerRegistration />
